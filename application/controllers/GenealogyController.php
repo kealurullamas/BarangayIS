@@ -52,19 +52,20 @@
             // $data=[
             //     'citizens'=>$this->citizen_model->get_citizens(),
             // ];
-            $firstperson="Marites Encarnacion";
-            $secondperson="Kealu Rullamas";
+            $firstperson="Luna Rullamas";
+            $secondperson="Samantha Rullamas";
             $relations=[];    
             $citizen=$this->citizen_model->get_citizens();
         
             $tree1=$this->supply($citizen,$firstperson);
             $tree2=$this->supply($citizen,$secondperson);
-            // print_r($tree1);
-            // print_r($tree2);
+            //print_r($tree1);
+            //print_r($tree2);
+
             $listlevelperson=$this->checkRelationship($this->supply($citizen,$firstperson),$this->supply($citizen,$secondperson));
-            print_r($listlevelperson);
+            //print_r($listlevelperson);
             $relationarray=$this->GetRelationship($tree2[0][0]['gender'], $listlevelperson[0], $listlevelperson[2], $listlevelperson[3]['name_slug'],$tree1);
-            echo $relationarray;
+            //echo $relationarray;
             // foreach($citizen as $firstper)
             // {
             //     foreach($citizen as $people){

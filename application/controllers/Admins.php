@@ -206,7 +206,7 @@
                     $this->citizen_model->update_citizen($id, $lastname, $firstname, $middlename, $address, $contact, $father, $mother);
                     $data = ['success' => TRUE];
                     $this->session->set_flashdata($data);
-                    redirect('admin_pages/citizens');
+                    redirect('genealogycontroller/citizens');
                 }
                 else{
                     $data = ['error' => '*field is required'];
