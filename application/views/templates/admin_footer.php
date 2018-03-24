@@ -31,6 +31,7 @@
     <script src="<?php echo base_url('assets/admin/js/sb-admin-ownmade.js'); ?>"></script>
     
     <script src="<?php echo base_url('assets/admin/combobox/js/bootstrap-combobox.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/CKEditor/ckeditor.js');?>"></script>
   </div>
 </body>
 

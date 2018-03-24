@@ -1,6 +1,14 @@
         <?php if($this->session->flashdata('success')): ?>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <div class="alert alert-success alert-dismissible" role="alert">
             <strong>Updated Successfully!</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+        </div>
+        <?php endif;?>
+        <?php if($this->session->flashdata('deletesuccess')): ?>
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <strong>Deleted Successfully!</strong>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>

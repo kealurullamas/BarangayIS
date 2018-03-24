@@ -3,7 +3,7 @@
 
 <div class="">
     <?php if($this->session->flashdata('success')): ?>
-        <div class="alert alert-success alert-dismissable fade show" role="alert">
+        <div class="alert alert-success alert-dismissable" role="alert">
             <strong>Added Successfully!</strong>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -39,7 +39,7 @@
                                 <span class="text-danger">*</span>
                                 <?php endif; ?>
                                 <label>News Body</label>
-                                <textarea name="newsbody" class="form-control" rows="10"></textarea>
+                                <textarea name="newsbody" class="form-control ckeditor" rows="10"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Upload Image</label>

@@ -1,14 +1,19 @@
         <?php if($this->session->flashdata('success')): ?>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <div class="alert alert-success alert-dismissible " role="alert">
             <strong>Updated Successfully!</strong>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
         </div>
         <?php endif;?>
-        <hr>
-        <hr>
-        
+        <?php if($this->session->flashdata('deletesuccess')): ?>
+        <div class="alert alert-success alert-dismissible" role="alert">
+            <strong>Deleted Successfully!</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+        </div>
+        <?php endif;?>
 
          <!--DataTables Card-->
          <div class="card mb-3">
@@ -51,7 +56,7 @@
                     <td style="width: 30%" align="center">
                         <button type="button" class="mt-1 ml-1 mb-1 btn btn-success btn-sm view-profile" data-citizens='<?php echo json_encode($relations);?>' 
                         data-profile="<?php echo htmlspecialchars(json_encode($profile = [ 'id' => $citizen['id'], 'lastname' => $citizen['lastname'], 'firstname' => $citizen['firstname'],
-                        'middlename' => $citizen['middlename'], 'gender' => $citizen['gender'], 'address' => $citizen['address'], 'contact' => $citizen['contact'], 'name_slug'=>$citizen['name_slug'] ]));?>">                        <i class="fa fa-fw fa-user-o"></i> Profiles</button>
+                        'middlename' => $citizen['middlename'], 'gender' => $citizen['gender'], 'address' => $citizen['address'], 'contact' => $citizen['contact'], 'name_slug'=>$citizen['name_slug'] ]));?>"><i class="fa fa-fw fa-user-o"></i> Profiles</button>
                         
                         <a href="<?php echo base_url('admin_pages/editcitizen/'.$citizen['id']);?>" class="mt-1 ml-1 mb-1 btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-fw fa-edit"></i> Edit</a>
                         
@@ -84,6 +89,7 @@
                     </div>
                     </div>
         </div>
+      
         <!-- family modal -->
         <div class="modal fade" id="familyModal" tabindex="-1" role="dialog" aria-labelledby="familyLabel" aria-hidden="true">
                     <div class="modal-dialog modal-xlg" role="document">

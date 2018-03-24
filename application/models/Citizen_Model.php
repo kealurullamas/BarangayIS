@@ -25,6 +25,8 @@
             return $query->row_array();
         }
 
+        
+
         public function update_citizen($id, $lastname, $firstname, $middlename, $address, $contact, $father, $mother){
             $data = [
                 'lastname' => $lastname,
