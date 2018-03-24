@@ -1,4 +1,5 @@
 <?php
+
     class GenealogyController extends CI_Controller
     {
         //check if user has session
@@ -52,19 +53,41 @@
             // $data=[
             //     'citizens'=>$this->citizen_model->get_citizens(),
             // ];
-            $firstperson="Luna Rullamas";
-            $secondperson="Samantha Rullamas";
-            $relations=[];    
-            $citizen=$this->citizen_model->get_citizens();
-        
-            $tree1=$this->supply($citizen,$firstperson);
-            $tree2=$this->supply($citizen,$secondperson);
-            //print_r($tree1);
-            //print_r($tree2);
 
-            $listlevelperson=$this->checkRelationship($this->supply($citizen,$firstperson),$this->supply($citizen,$secondperson));
-            //print_r($listlevelperson);
-            $relationarray=$this->GetRelationship($tree2[0][0]['gender'], $listlevelperson[0], $listlevelperson[2], $listlevelperson[3]['name_slug'],$tree1);
+
+            // $firstperson="Luna Rullamas";
+            // $secondperson="Samantha Rullamas";
+            // $relations=[];    
+            // $citizen=$this->citizen_model->get_citizens();
+        
+            // $tree1=$this->supply($citizen,$firstperson);
+            // $tree2=$this->supply($citizen,$secondperson);
+            // //print_r($tree1);
+            // //print_r($tree2);
+
+            // $listlevelperson=$this->checkRelationship($this->supply($citizen,$firstperson),$this->supply($citizen,$secondperson));
+            // //print_r($listlevelperson);
+            // $relationarray=$this->GetRelationship($tree2[0][0]['gender'], $listlevelperson[0], $listlevelperson[2], $listlevelperson[3]['name_slug'],$tree1);
+            
+           
+
+            // $fh = fopen(base_url('assets/bgy.pdf'), 'rb');
+            // $pdf->setSourceFile(new StreamReader($fh));
+            // // same as
+            // $pdf->setSourceFile($fh);
+            // // don't forget to call fclose($fh);
+            
+            // // use a path
+            // $path = 'a/path/to/a.pdf';
+            // $pdf->setSourceFile(StreamReader::createByFile($path));
+            // // same as
+            // $pdf->setSourceFile($path);
+            
+            // // use a string
+            // $pdfString = '%%PDF-1.4...';
+            // $pdf->setSourceFile(StreamReader::createByString($pdfString));
+
+            $this->load->library('Pdf');
             //echo $relationarray;
             // foreach($citizen as $firstper)
             // {
@@ -93,6 +116,7 @@
             // $data=['relations'=>$relations];
             $this->load->view('templates/header');
             // $this->load->view('test_gen/genealogy');
+            $this->load->view('samplefile');
             $this->load->view('templates/footer');
 
         }
