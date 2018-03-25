@@ -93,6 +93,8 @@
                     // $this->load->view('admin_pages/view');
                     // $this->load->view('templates/admin_footer');
                     echo json_encode(array("status" => TRUE));
+                    $data = ['deletesuccess' => TRUE];
+                    $this->session->set_flashdata($data);
                     $this->news_model->delete_news($rowid);
                     
             }
@@ -118,6 +120,8 @@
 
             public function deleteannouncement($id){
                 echo json_encode(array("status" => TRUE));
+                $data = ['deletesuccess' => TRUE];
+                $this->session->set_flashdata($data);
                 $this->announcements_model->delete_announcement($id);
             }
 
@@ -202,11 +206,14 @@
                     $contact = $this->input->post('contact');
                     $father = $this->input->post('father');
                     $mother = $this->input->post('mother');
-
+   
                     $this->citizen_model->update_citizen($id, $lastname, $firstname, $middlename, $address, $contact, $father, $mother);
-                    $data = ['success' => TRUE];
+                    $data = [
+                        'success' => TRUE
+                    ];
                     $this->session->set_flashdata($data);
                     redirect('genealogycontroller/citizens');
+                   
                 }
                 else{
                     $data = ['error' => '*field is required'];
@@ -214,9 +221,13 @@
                     redirect('admin_pages/editcitizen/'.$id, $data);
                 }
             }   
+
+       
             
             public function deletecitizen($id){
-                echo json_encode(['status' => TRUE]);
+                echo json_encode(array("status" => TRUE));
+                $data = ['deletesuccess' => TRUE];
+                $this->session->set_flashdata($data);
                 $this->citizen_model->delete_citizen($id);
             }
     }

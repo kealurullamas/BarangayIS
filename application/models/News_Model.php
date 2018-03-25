@@ -87,9 +87,9 @@
                     'slug' => url_title($this->input->post('newstitle')),
                     'image' => $this->upload->file_name
                 ];
-                
-                $this->db->where('id',$id);
-                $this->db->update('news',$data);
+                $this->db->where('id', $id);
+                $this->db->update('news', $data);
+
                 return true;
             }
             else{

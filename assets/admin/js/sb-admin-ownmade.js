@@ -23,17 +23,33 @@ $(document).ready(function(){
 
     //       }
     // }
+    $( '.alert').show().fadeOut( 5000 );
+    
+    $('.panel-body').on('click', '.confirm-edit', function(e) {
+        e.preventDefault();
+   
+        $('#editModal').modal('show');
+    });
+
+    $('#btnUpdate').click(function() {
+        $("#myform" ).submit();
+    });
     
    // delete confirmation using a modal
       //pass data from to modal
-      $('.confirm-delete').on('click', function(e) {
+      $('#dataTable').on('click', '.confirm-delete', function(e) {
           e.preventDefault();
-
+     
+          
           var id = $(this).data('id');
           var url = $(this).data('url');
+          
           $('#deleteModal').data('id', id).modal('show');
           $('#deleteModal').data('url', url);
       });
+
+   
+
       //button in a modal
       $('#btnConfirm').click(function() {
           var id = $('#deleteModal').data('id');
@@ -54,22 +70,16 @@ $(document).ready(function(){
               });
       });
 
-      $('.view-profile').on('click', function(e){
+      $('#dataTable').on('click', '.view-profile', function(e){
           e.preventDefault();
 
         var profile = $(this).data('profile');
         var citizens = $(this).data('citizens');
-        
-        //var dimensions = { width: 10, height: 15, length: 20 };
-// var keys = $.map( citizens, function( value, key ) {
-//     var r;
-//     if(value.id == 4)
-//     {
-//         r = value.father;
-//     }
-//   return r;
-// });
-            
+
+            $('#familyModal').on('click', '#btnClose', function(e){
+                e.preventDefault();
+                $('#familyModal').modal('hide');
+            });
        
             $('#familyModal').modal('show');
             
@@ -80,7 +90,7 @@ $(document).ready(function(){
             $('#address').val(profile['address']);
             $('#contact').val(profile['contact']);
             // console.log("ma name is"+profile['name_slug']);
-            console.log(citizens);
+            
             var html = '';
             for(var i = 0; i < citizens.length; i++){
                
@@ -94,16 +104,6 @@ $(document).ready(function(){
                     '</td><td>' + citizens[i][1] +'</td></tr>';
                 }
             }
-            // citizens.forEach(element => {
-            //     // console.log(element[0]['name_slug']);
-            //     // console.log(element[1]);
-            //     html += '<tr><td>' + element[0]['lastname'] + 
-            //     '</td><td>' + citizens[i].firstname +
-            //     '</td><td>' + citizens[i].middlename +
-            //     '</td><td>' + citizens[i].gender +
-            //     '</td><td>' + citizens[i].address +
-            //     '</td><td>' + citizens[i].contact + '</td></tr>';
-            // });
             $('#familyTable tbody').append(html);  
         // var OLDTOYOUNGINDIRECTFAMILYRELATIONMALE = [["Brother","Nephew","Grand-Nephew","Great-Grand-Nephew","2nd Great-Grand-Nephew", "3rd Great-Grand-Nephew", "4th Great-Grand-Nephew", "5th Great-Grand-Nephew" ],
         // [ "Nephew", "First Cousin","First Cousin Once Removed","First Twice Removed","First Cousin 3x Removed","First Cousin 4x Removed", "First Cousin 5x Removed", "First Cousin 6x Removed" ],
