@@ -1,3 +1,4 @@
+<div class="col-sm-3"></div>
 <footer id="footer">
     <div class="container">
       <div class="copyright">

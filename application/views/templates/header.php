@@ -29,14 +29,14 @@
     <!-- Main S1tylesheet File -->
   <link href="<?php echo base_url('assets/css/style.css')?>" rel="stylesheet">
 </head>
-<body id="body">
+<body id="body" style="background-color:gray">
   <header id="header">
-    <div class="container">
+    <div class="container" style="height:50%">
 
       <div id="logo" class="pull-left">
-        <h1><a href="#body" class="scrollto">Insert <span>Logo </span> Here</a></h1>
+        <!-- <h1><a href="#body" class="scrollto">Insert <span>Logo </span> Here</a></h1> -->
         <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
+        <a href="#"><img src="<?php echo base_url('assets/logo.png')?>" style="width:25%" alt="" title="" /></a>
       </div>
 
       <nav id="nav-menu-container">
@@ -68,3 +68,7 @@
       </nav><!-- #nav-menu-container -->
     </div>
   </header><!-- #header -->
+  <div class="row">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+  <br>
