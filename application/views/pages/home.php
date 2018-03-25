@@ -4,56 +4,65 @@
 
 <div class="container" style="background-color:white;">
     <br>
-    <h2>Malaban News Headlines</h2>
-    <br>
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    
         
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-        
-            <?php foreach($News as $news):?>
-            <?php if($news['id']==$News[0]['id']):?>
-                <div class="carousel-item active">
-                <img style="width:100%;  height:300" src="<?php echo base_url('assets/img/'.$news['image'])?>">
-                <div class="carousel-caption">
-                    <h6><a href="#"><?php echo $news['title']?></a></h6>
-                    <small><?php echo word_limiter($news['body'],10);?><a class="label label-primary" href="<?php echo site_url('/news/'.$news['slug'])?>" >Read More</a></small>
-                </div>
-                </div><!-- End Item -->
-            <?php else:?>
-            <div class="carousel-item">
-                <img style="width:100%;  height:300" src="<?php echo base_url('assets/img/'.$news['image'])?>">
-                <div class="carousel-caption">
-                <h6><a href="#"><?php echo $news['title']?></a></h6>
-                <small><?php echo word_limiter($news['body'],25);?><a class="label label-primary" href="<?php echo site_url('/news/'.$news['slug'])?>" >Read More</a></small>
-                </div>
-            </div><!-- End Item -->
-            <?php endif?>
-            <?php endforeach?>
-            
+        <div class="card text-white bg-secondary mb-3" style="max-width: 200rem;">
+            <div class="card-header">Malaban News Headlines</div>
+            <div class="card-body">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                
+                    <?php foreach($News as $news):?>
+                    <?php if($news['id']==$News[0]['id']):?>
+                        <div class="carousel-item active">
+                        <img style="width:100%;  height:300" src="<?php echo base_url('assets/img/'.$news['image'])?>">
+                        <div class="carousel-caption">
+                            <h6><a href="#"><?php echo $news['title']?></a></h6>
+                            <small><?php echo word_limiter($news['body'],10);?><a class="label label-primary" href="<?php echo site_url('/news/'.$news['slug'])?>" >Read More</a></small>
+                        </div>
+                        </div><!-- End Item -->
+                    <?php else:?>
+                    <div class="carousel-item">
+                        <img style="width:100%;  height:300" src="<?php echo base_url('assets/img/'.$news['image'])?>">
+                        <div class="carousel-caption">
+                        <h6><a href="#"><?php echo $news['title']?></a></h6>
+                        <small><?php echo word_limiter($news['body'],25);?><a class="label label-primary" href="<?php echo site_url('/news/'.$news['slug'])?>" >Read More</a></small>
+                        </div>
+                    </div><!-- End Item -->
+                    <?php endif?>
+                    <?php endforeach?>
                     
-        </div><!-- End Carousel Inner -->
+                            
+                </div><!-- End Carousel Inner -->
+                <ul class="list-group col-sm-4">
 
+                <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                    <?php if(!empty($News[0])):?>
+                        <li data-target="#myCarousel" data-slide-to="0" class="list-group-item"><small><?php echo $News[0]['title'];?></small></li>
+                        <?php endif?>
+                    <?php if(!empty($News[1])):?>
+                        <li data-target="#myCarousel" data-slide-to="1" class="list-group-item"><small><?php echo $News[1]['title'];?></small></li>
+                        <?php endif?>
+                    <?php if(!empty($News[2])):?>
+                        <li data-target="#myCarousel" data-slide-to="2" class="list-group-item"><small><?php echo $News[2]['title'];?></small></li>
+                        <?php endif?>
+                    <?php if(!empty($News[3])):?>
+                        <li data-target="#myCarousel" data-slide-to="3" class="list-group-item"><small><?php echo $News[3]['title'];?></small></li>
+                        <?php endif?>
+                    <?php if(!empty($News[4])):?>
+                        <li data-target="#myCarousel" data-slide-to="4" class="list-group-item"><small><?php echo $News[4]['title'];?></small></li>
+                        <?php endif?>
+                    <?php if(!empty($News[5])):?>
+                        <li data-target="#myCarousel" data-slide-to="5" class="list-group-item"><small><?php echo $News[5]['title'];?></small></li>
+                    <?php endif?>
+                </div>
+                   
+            </div>
+            </div>
 
-        <ul class="list-group col-sm-4">
-        <?php if(!empty($News[0])):?>
-            <li data-target="#myCarousel" data-slide-to="0" class="list-group-item active"><small><?php echo $News[0]['title'];?></small></li>
-            <?php endif?>
-        <?php if(!empty($News[1])):?>
-            <li data-target="#myCarousel" data-slide-to="1" class="list-group-item"><small><?php echo $News[1]['title'];?></small></li>
-            <?php endif?>
-        <?php if(!empty($News[2])):?>
-            <li data-target="#myCarousel" data-slide-to="2" class="list-group-item"><small><?php echo $News[2]['title'];?></small></li>
-            <?php endif?>
-        <?php if(!empty($News[3])):?>
-            <li data-target="#myCarousel" data-slide-to="3" class="list-group-item"><small><?php echo $News[3]['title'];?></small></li>
-            <?php endif?>
-        <?php if(!empty($News[4])):?>
-            <li data-target="#myCarousel" data-slide-to="4" class="list-group-item"><small><?php echo $News[4]['title'];?></small></li>
-            <?php endif?>
-        <?php if(!empty($News[5])):?>
-            <li data-target="#myCarousel" data-slide-to="5" class="list-group-item"><small><?php echo $News[5]['title'];?></small></li>
-        <?php endif?>
+        
         
 
         <!-- Controls -->

@@ -1,4 +1,10 @@
 
+.list-group-item{
+	background-color: #0077f7;
+}
+.list-group-item active{
+	background-color: #0077f7;
+}
 .carousel-caption {
     left:0;
 	right:0;
