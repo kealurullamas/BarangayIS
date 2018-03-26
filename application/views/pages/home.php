@@ -96,10 +96,8 @@
             </div>
 
             <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+            <div class="card-header">Events</div>
             <div class="card-body">
-                <div class="card-header">
-                    <h6 class="card-title"><strong>Events</strong></h6>
-                </div>
                 <div class="container">
                 <ul class="list-group" >
                     <li ><small>Cras justo odio</small> </li>
@@ -126,6 +124,7 @@
             </div>
             </div>
         </div>
+        <hr>
         <!-- Start Gallery -->
          <div class="container">
 
@@ -133,15 +132,20 @@
 
             <div class="row text-center text-lg-left">
                 <?php foreach($Galleries as $gallery):?>
-                <div class="col-lg-3 col-md-4 col-xs-6">
-                    <a href="<?php echo base_url('Galleries/view/'.$gallery['slug']);?>" class="d-block mb-4 h-100">
-                        <img class="img-fluid img-thumbnail" src="<?php echo base_url('assets/img/'.$gallery['image']);?>" alt="">
-                    </a>
-                    </div>
-                <?php endforeach?>
-                <a href="#" class="btn btn-primary">More</a>
-
+                <div class="card text-white bg-primary mb-3" style="max-width: 18rem;margin:5px;">
+                <img class="card-img-top" src="<?php echo base_url('assets/img/'.$gallery['image']);?>" alt="Card image cap">
+                <div class="card-body">
+                <h6 class="card-title">Card title</h6>
+                <small class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</small>
                 </div>
+                <div class="card-footer">
+                <small>Last updated 3 mins ago</small>
+                </div>
+                </div>
+                <?php endforeach?>
+                <a href="#" style="float-right" class="btn btn-primary">More</a>
+                </div>
+                <br>
             </div>
         </div>
         <!--end of gallery-->

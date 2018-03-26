@@ -1,4 +1,6 @@
-
+hr{
+	border-color:grey;
+}
 .list-group-item{
 	background-color: #0077f7;
 }
