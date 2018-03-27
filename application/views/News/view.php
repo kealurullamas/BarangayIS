@@ -1,5 +1,5 @@
-<div class="containernews">
-
+<div  class="container" style="background-color:white;">
+<br>
     <!-- Post Content Column -->
     <div class="col-lg-12">
 
@@ -28,6 +28,7 @@
     <small></small>
     
     </div>
+    <br>
 </div>
 </div>
 </div>
