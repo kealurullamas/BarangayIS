@@ -19,6 +19,10 @@ class News extends CI_controller
             'total_rows'=>$this->news_model->count(),
             'per_page'=>2,
             'uri_segment'=>3,
+            'next_link' =>'Next',
+            'prev_link'=>'Previous',
+            'cur_tag_open'=>'&nbsp;<a class="current">',
+            'cur_tag_close'=>'</a>',
         ];
 
         $this->pagination->initialize($config);

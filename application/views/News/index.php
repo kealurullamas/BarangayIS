@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="containerbis">
   <h2>News Flash</h2>
   <!---<p>The .table class adds basic styling (light padding and horizontal dividers) to a table:</p>-->            
   <table class="table">
@@ -16,7 +16,14 @@
     </tbody>
  
   </table>
-  <div class="container">
-    <?php echo $links;?>
-  </div>
+ <br>
+  <nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <h6 style="color:black"><?php echo $links;?></h6>
+  </ul>
+  </nav>
+  
 </div>
+</div>
+</div>
+<br>

@@ -1,11 +1,7 @@
 
 <!------ Include the above in your HEAD tag ---------->
-
-
 <div class="container" style="background-color:white;">
     <br>
-    
-        
         <div class="card text-white bg-secondary mb-3" style="max-width: 200rem;">
             <div class="card-header">Malaban News Headlines</div>
             <div class="card-body">
@@ -85,12 +81,15 @@
             <div class="card-body">
                 <div class="container">
                 <ul class="list-group" >
-                    <li ><small>Cras justo odio</small> </li>
-                    <li>Dapibus ac facilisis in</li>
-                    <li>Morbi leo risus</li>
-                    <li >Porta ac consectetur ac</li>
-                    <li >Vestibulum at eros</li>
+                    <?php foreach($Announcements as $annoucement):?>
+                    <li><small><a class="cardlink" href="<?php echo site_url('announcements/view/'.$annoucement['slug']);?>"><?php echo $annoucement['title'];?></a></small></li>
+                    <?php endforeach;?>
                 </ul>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="container text-center">
+                    <small><a href="#" style="text-decoration:underline;" class="cardlink">View All</a></small>
                 </div>
             </div>
             </div>
@@ -114,12 +113,17 @@
             <div class="card-body">
                 <div class="container">
                 <ul class="list-group" >
-                    <li ><small>Cras justo odio</small> </li>
-                    <li>Dapibus ac facilisis in</li>
-                    <li>Morbi leo risus</li>
-                    <li >Porta ac consectetur ac</li>
-                    <li >Vestibulum at eros</li>
+                    <?php foreach($News as $news):?>
+                    <li><small><a class="cardlink" href="<?php echo site_url('news/view/'.$news['slug']);?>"><?php echo $news['title'];?></a></small></li>
+                    
+                    <?php endforeach?>
                 </ul>
+               
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="container text-center">
+                    <small><a href="#" style="text-decoration:underline;" class="cardlink">View All</a></small>
                 </div>
             </div>
             </div>
@@ -128,56 +132,37 @@
         <!-- Start Gallery -->
          <div class="container">
 
-            <h1 class="my-4 text-center text-lg-left">Barangay Gallery</h1>
-
-            <div class="row text-center text-lg-left">
-                <?php foreach($Galleries as $gallery):?>
-                <div class="card text-white bg-primary mb-3" style="max-width: 18rem;margin:5px;">
-                <img class="card-img-top" src="<?php echo base_url('assets/img/'.$gallery['image']);?>" alt="Card image cap">
-                <div class="card-body">
-                <h6 class="card-title">Card title</h6>
-                <small class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</small>
+         <div class="card text-white bg-secondary mb-3" style="max-width: 120rem;">
+            <div class="card-header">Barangay Gallery</div>
+            <div class="card-body">
+                <div class="container">
+                    <div class="row text-center text-lg-left">
+                        <?php foreach($Galleries as $gallery):?>
+                        <div class="card text-white bg-primary mb-3" style="max-width:16rem;margin:10px;">
+                        <img class="card-img-top" src="<?php echo base_url('assets/img/'.$gallery['image']);?>" alt="Card image cap">
+                        <div class="card-body">
+                        <h6 class="card-title">Card title</h6>
+                        <small class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</small>
+                        </div>
+                        <div class="card-footer">
+                        <small>Uploaded at: <?php echo $gallery['uploaded_at'];?></small>
+                        </div>
+                        </div>
+                        <?php endforeach?>
+                    </div>
+                    <br>
                 </div>
-                <div class="card-footer">
-                <small>Last updated 3 mins ago</small>
-                </div>
-                </div>
-                <?php endforeach?>
-                <a href="#" style="float-right" class="btn btn-primary">More</a>
-                </div>
-                <br>
             </div>
+            <div class="card-footer">
+                <div class="container text-center">
+                    <small><a href="#" style="text-decoration:underline;" class="cardlink">View All</a></small>
+                </div>
+            </div>
+            </div>
+            <br>
+        </div>
         </div>
         <!--end of gallery-->
   </div>
-    
-
-  <!-- <div class="col-6 col-md-1 sidebar-offcanvas" id="sidebar">
-  <br>
-  <br>
-  <br>
-  <br>
-        <div class="card" style="width: 19rem;">
-        <div class="card-body">
-        <h5>Announcements</h5>
-            <div class="list-group">
-                <?php foreach($Announcements as $announcement):?>
-                <a href="<?php echo base_url().'announcements/view/'.$announcement['slug'];?>" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1"><strong><?php echo $announcement['title'];?></strong></h5>
-                    </div>
-                    <small><?php echo $announcement['created_at'];?></small>
-                    <p class="mb-1"><?php echo word_limiter($announcement['body'],20);?></p>
-                    <small>Read More</small>
-                </a>
-               
-                <?php endforeach;?>
-            </div>
-            <br>
-            <a href="<?php echo base_url('announcements/viewAll');?>" class="btn btn-primary">More</a>
-        </div>
-        </div>
-
-  </div> -->
 </div>
 <br>

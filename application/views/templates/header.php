@@ -29,18 +29,18 @@
     <!-- Main S1tylesheet File -->
   <link href="<?php echo base_url('assets/css/style.css')?>" rel="stylesheet">
 </head>
-<body id="body" style="background-color:gray">
-  <header id="header">
-    <div class="container" style="height:50%">
-
-      <div id="logo" class="pull-left">
-        <!-- <h1><a href="#body" class="scrollto">Insert <span>Logo </span> Here</a></h1> -->
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="#"><img src="<?php echo base_url('assets/logo.png')?>" style="width:25%" alt="" title="" /></a>
-      </div>
-
-      <nav id="nav-menu-container">
-        <ul class="nav-menu">
+<body id="body" style="background-color:#333">
+<div class="row">
+  <div class="col-sm-3"></div>
+  <div class="col-sm-6">
+  <div class="container" style="min-width:100px;height:200px;
+background-size:contain;
+  background:url(<?php echo base_url('assets/topnav4.png')?>)">
+  </div>
+    
+      <nav class="navbar navbar-dark bg-dark">
+        <br>
+        <ul class="nav-menu float-left">
           <li class="menu-active"><a href="<?php echo base_url().'Pages/view/home'?>">Home</a></li>
           <li class="menu-has-children"><a href="">About Us</a>
             <ul>
@@ -66,9 +66,11 @@
           </li>
         </ul>
       </nav><!-- #nav-menu-container -->
-    </div>
-  </header><!-- #header -->
+   
+</div>
+</div>
+<div class="col-sm-3"></div>
   <div class="row">
-  <div class="col-sm-3"></div>
-  <div class="col-sm-6">
+  <div class="col-sm-1 col-md-3"></div>
+  <div class="col-sm-10 col-md-6">
   <br>

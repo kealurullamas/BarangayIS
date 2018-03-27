@@ -120,7 +120,7 @@
             // $data=['relations'=>$relations];
             $this->load->view('templates/header');
             // $this->load->view('test_gen/genealogy');
-            $this->load->view('samplefile');
+            $this->load->view('test_gen/genealogy');
             $this->load->view('templates/footer');
 
         }

@@ -1,3 +1,38 @@
+@media (max-width: 768px) {
+	.col-sm-9 {
+	  width: 50% !important;
+	}
+}
+.containerbis{
+	background-color:white;
+	height:800px;
+	padding: 20px;
+}
+.containernews{
+	background-color:white;
+	height:1500px;
+	padding: 20px;
+}
+.containertop{
+	min-width:100px;
+	height:200px;
+}
+.cardlink{
+	color: white;
+}
+.cardlink:link{
+	color: white;
+}
+.cardlink:hover{
+	color: white;
+	text-decoration: underline;
+}
+.cardlink:visited{
+	color:white;
+}
+.cardlink:active{
+	color: white;
+}
 hr{
 	border-color:grey;
 }
