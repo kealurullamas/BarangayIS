@@ -1,6 +1,11 @@
 @media (max-width: 768px) {
+<<<<<<< HEAD
 	.container{
 		background-color:blue;
+=======
+	.col-sm-6 {
+	  width: 1000px !important;
+>>>>>>> bc6d1e821a358393cf2caa525b8561bbe5bfdd48
 	}
 }
 .containerbis{

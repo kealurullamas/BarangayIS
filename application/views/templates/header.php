@@ -31,19 +31,25 @@
 </head>
 <body id="body" style="background-color:#333">
 <div class="row">
+<<<<<<< HEAD
   <div class="col-sm-3"></div>
   <div class="col-sm-6">
   <div class="container" style="min-width:100px;height:200px;background-repeat:no-repeat;
+=======
+  <div class="col-sm-1"></div>
+  <div class="col-sm-10">
+  <div class="container" style="height:200px;
+>>>>>>> bc6d1e821a358393cf2caa525b8561bbe5bfdd48
 background-size:contain;
 
   background:url(<?php echo base_url('assets/topnav4.png')?>)">
   </div>
-    
+    <div class="container" style="padding:0px;">
       <nav class="navbar navbar-dark bg-dark">
         <br>
-        <ul class="nav-menu float-left">
+        <ul class="nav-menu">
           <li class="menu-active"><a href="<?php echo base_url().'Pages/view/home'?>">Home</a></li>
-          <li class="menu-has-children"><a href="">About Us</a>
+          <li class="menu-has-children"><a class="cardlink" href="">About Us</a>
             <ul>
               <li><a href="<?php echo base_url().'Pages/view/mission_and_vision'?>">Mission and Vision</a></li>
               <li><a href="<?php echo base_url().'Pages/view/barangay_council'?>">Barangay Council</a></li>
@@ -53,13 +59,13 @@ background-size:contain;
               <li><a href="#">Contacts</a></li>
             </ul>
           </li>
-            <li class="menu-has-children"><a href="">Landmarks</a>
+            <li class="menu-has-children"><a class="cardlink"href="">Landmarks</a>
             <ul>
               <li><a href="#">Map</a></li>
             </ul>
           </li>
-          <li><a href="">Photo Gallery</a></li>
-          <li class="menu-has-children"><a href="">Others</a>
+          <li><a class="cardlink" href="">Photo Gallery</a></li>
+          <li class="menu-has-children"><a class="cardlink" href="">Others</a>
             <ul>
               <li><a href="<?php echo base_url()?>news/view_all">News</a></li>
               <li><a href="<?php echo base_url()?>announcements/viewAll">Announcements</a></li>
@@ -67,11 +73,16 @@ background-size:contain;
           </li>
         </ul>
       </nav><!-- #nav-menu-container -->
-   
+      </div>
 </div>
 </div>
-<div class="col-sm-3"></div>
+<div class="col-sm-1"></div>
   <div class="row">
+<<<<<<< HEAD
   <div class="col-sm-3"></div>
   <div class="col-sm-6">
+=======
+  <div class="col-sm-1"></div>
+  <div class="col-sm-10">
+>>>>>>> bc6d1e821a358393cf2caa525b8561bbe5bfdd48
   <br>

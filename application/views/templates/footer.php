@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <div class="col-md-1"></div>
+=======
+<div class="col-sm-1"></div>
+>>>>>>> bc6d1e821a358393cf2caa525b8561bbe5bfdd48
 
 <footer id="footer">
     <div class="container">

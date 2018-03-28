@@ -1,7 +1,7 @@
 
 
 <!------ Include the above in your HEAD tag ---------->
-<div class="containerbis">
+<div class="container" style="height:800px;padding:0px">
     <div class="card " style="max-width: 150rem;">
     <div class="card-header">Mission and Vision</div>
     <div class="card-body">

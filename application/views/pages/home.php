@@ -34,7 +34,7 @@
                 </div><!-- End Carousel Inner -->
                 <ul class="list-group col-sm-4">
 
-                <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+                <div class="card text-white bg-secondary mb-3" style="max-width: 22rem;">
                     <?php if(!empty($News[0])):?>
                         <li data-target="#myCarousel" data-slide-to="0" class="list-group-item"><small><?php echo $News[0]['title'];?></small></li>
                         <?php endif?>
@@ -75,8 +75,9 @@
         <hr>
         <br>
 
+        
         <div class="card-deck">
-            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+            <div class="card text-white bg-secondary mb-3" style="max-width: 22rem;">
             <div class="card-header">Announcements</div>
             <div class="card-body">
                 <div class="container">
@@ -94,7 +95,7 @@
             </div>
             </div>
 
-            <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+            <div class="card text-white bg-primary mb-3" style="max-width: 22rem;">
             <div class="card-header">Events</div>
             <div class="card-body">
                 <div class="container">
@@ -108,7 +109,7 @@
                 </div>
             </div>
             </div>
-            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+            <div class="card text-white bg-secondary mb-3" style="max-width: 22rem;">
             <div class="card-header">News</div>
             <div class="card-body">
                 <div class="container">
@@ -138,7 +139,7 @@
                 <div class="container">
                     <div class="row text-center text-lg-left">
                         <?php foreach($Galleries as $gallery):?>
-                        <div class="card text-white bg-primary mb-3" style="max-width:16rem;margin:10px;">
+                        <div class="card text-white bg-primary mb-3" style="max-width:15rem;margin:6px;">
                         <img class="card-img-top" src="<?php echo base_url('assets/img/'.$gallery['image']);?>" alt="Card image cap">
                         <div class="card-body">
                         <h6 class="card-title">Card title</h6>
