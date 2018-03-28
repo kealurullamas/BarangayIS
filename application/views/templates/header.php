@@ -36,7 +36,7 @@
   <div class="container" style="height:200px;
 background-size:contain;
 
-  background:url(<?php echo base_url('assets/topnav4.png')?>)">
+  background:url(<?php echo base_url('assets/top2.png')?>)">
   </div>
     <div class="container" style="padding:0px;">
       <nav class="navbar navbar-dark bg-dark">
@@ -63,6 +63,7 @@ background-size:contain;
             <ul>
               <li><a href="<?php echo base_url()?>news/view_all">News</a></li>
               <li><a href="<?php echo base_url()?>announcements/viewAll">Announcements</a></li>
+              <li><a href="<?php echo base_url()?>projects/index">Projects</a></li>
             </ul>
           </li>
         </ul>
@@ -72,11 +73,6 @@ background-size:contain;
 </div>
 <div class="col-sm-1"></div>
   <div class="row">
-<<<<<<< HEAD
-  <div class="col-sm-3"></div>
-  <div class="col-sm-6">
-=======
   <div class="col-sm-1"></div>
   <div class="col-sm-10">
->>>>>>> bc6d1e821a358393cf2caa525b8561bbe5bfdd48
   <br>

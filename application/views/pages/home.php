@@ -78,7 +78,7 @@
         
         <div class="card-deck">
             <div class="card text-white bg-secondary mb-3" style="max-width: 22rem;">
-            <div class="card-header">Announcements</div>
+            <div class="card-header" >Announcements</div>
             <div class="card-body">
                 <div class="container">
                 <ul class="list-group" >
@@ -96,7 +96,7 @@
             </div>
 
             <div class="card text-white bg-primary mb-3" style="max-width: 22rem;">
-            <div class="card-header">Events</div>
+            <div class="card-header" >Events</div>
             <div class="card-body">
                 <div class="container">
                 <ul class="list-group" >
@@ -110,7 +110,7 @@
             </div>
             </div>
             <div class="card text-white bg-secondary mb-3" style="max-width: 22rem;">
-            <div class="card-header">News</div>
+            <div class="card-header" >News</div>
             <div class="card-body">
                 <div class="container">
                 <ul class="list-group" >
@@ -129,6 +129,49 @@
             </div>
             </div>
         </div>
+        <hr>
+        <!--start of projects-->
+        <!-- style="background-color:#4ca6d8; -->
+ 
+
+        <div class="card-deck">
+            <div class="card text-white bg-secondary mb-3" style="max-width: 34rem;">
+            <div class="card-header" >Projects</div>
+            <div class="card-body">
+                <div class="container">
+                <ul class="list-group" >
+                    <?php foreach($projects as $project):?> 
+                    <li><small><a class="cardlink" href=""><?php echo $project['title'];?></a></small></li>
+                    <?php endforeach?>
+                </ul>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="container text-center">
+                    <small><a href="#" style="text-decoration:underline;" class="cardlink">View All</a></small>
+                </div>
+            </div>
+            </div>
+            <div class="card text-white bg-secondary mb-3" style="max-width: 34rem;">
+            <div class="card-header" >Ordinance</div>
+            <div class="card-body">
+                <div class="container">
+               <?php echo form_open()?>
+               <div class="form-group">
+                <input type="text" name="title" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Search for Barangay Ordinance">
+                </div>
+                <button type="submit"  class="btn btn-primary float-right">Submit</button>
+               <?php form_close()?>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="container text-center">
+                    <small><a href="#" style="text-decoration:underline;" class="cardlink ">Ordinance</a></small>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- end projects -->
         <hr>
         <!-- Start Gallery -->
          <div class="container">

@@ -11,7 +11,8 @@
 			$data=[
 				'News'=>$this->news_model->get_news(),
 				'Announcements'=>$this->announcements_model->get_announcement(),
-				'Galleries'=>$this->gallery_model->getGallery()
+				'Galleries'=>$this->gallery_model->getGallery(),
+				'projects'=>$this->projects_model->get_project()
 			];
 			
 			$this->load->view('templates/header');

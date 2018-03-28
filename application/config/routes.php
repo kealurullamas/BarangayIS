@@ -50,6 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
+$route['project/create']='projects/create';
 $route['genealogy']='genealogycontroller/index';
 $route['galleries/getAll']='galleries/getAll';
 $route['galleries/create']='galleries/create';
