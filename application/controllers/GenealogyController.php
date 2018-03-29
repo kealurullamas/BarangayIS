@@ -87,7 +87,11 @@
             // $pdfString = '%%PDF-1.4...';
             // $pdf->setSourceFile(StreamReader::createByString($pdfString));
 
-            $this->load->library('Pdf');
+            // $this->load->library('googlemaps');
+            // $this->googlemaps->initialize();
+            // $data['map'] = $this->googlemaps->create_map();
+
+// Load our view, passing the map data that has just been created $this->load->view('my_view', $data);
             //echo $relationarray;
             // foreach($citizen as $firstper)
             // {
@@ -116,7 +120,7 @@
             // $data=['relations'=>$relations];
             $this->load->view('templates/header');
             // $this->load->view('test_gen/genealogy');
-            $this->load->view('samplefile');
+            $this->load->view('test_gen/genealogy');
             $this->load->view('templates/footer');
 
         }

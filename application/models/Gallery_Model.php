@@ -11,7 +11,7 @@
             if($slug===FALSE)
             {
                 //$this->db->order_by('uploaded_at','desc');
-                $query=$this->db->get('gallery',12);
+                $query=$this->db->get('gallery',6);
                 return $query->result_array();
             }
             $query= $this->db->get_where('gallery',array('slug'=>$slug));

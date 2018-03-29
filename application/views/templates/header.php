@@ -29,20 +29,21 @@
     <!-- Main S1tylesheet File -->
   <link href="<?php echo base_url('assets/css/style.css')?>" rel="stylesheet">
 </head>
-<body id="body">
-  <header id="header">
-    <div class="container">
+<body id="body" style="background-color:#333">
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-10">
+  <div class="container" style="height:200px;
+background-size:contain;
 
-      <div id="logo" class="pull-left">
-        <h1><a href="#body" class="scrollto">Insert <span>Logo </span> Here</a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
-      </div>
-
-      <nav id="nav-menu-container">
+  background:url(<?php echo base_url('assets/top2.png')?>)">
+  </div>
+    <div class="container" style="padding:0px;">
+      <nav class="navbar navbar-dark bg-dark">
+        <br>
         <ul class="nav-menu">
           <li class="menu-active"><a href="<?php echo base_url().'Pages/view/home'?>">Home</a></li>
-          <li class="menu-has-children"><a href="">About Us</a>
+          <li class="menu-has-children"><a class="cardlink" href="">About Us</a>
             <ul>
               <li><a href="<?php echo base_url().'Pages/view/mission_and_vision'?>">Mission and Vision</a></li>
               <li><a href="<?php echo base_url().'Pages/view/barangay_council'?>">Barangay Council</a></li>
@@ -52,19 +53,26 @@
               <li><a href="#">Contacts</a></li>
             </ul>
           </li>
-            <li class="menu-has-children"><a href="">Landmarks</a>
+            <li class="menu-has-children"><a class="cardlink"href="">Landmarks</a>
             <ul>
               <li><a href="#">Map</a></li>
             </ul>
           </li>
-          <li><a href="">Photo Gallery</a></li>
-          <li class="menu-has-children"><a href="">Others</a>
+          <li><a class="cardlink" href="">Photo Gallery</a></li>
+          <li class="menu-has-children"><a class="cardlink" href="">Others</a>
             <ul>
               <li><a href="<?php echo base_url()?>news/view_all">News</a></li>
               <li><a href="<?php echo base_url()?>announcements/viewAll">Announcements</a></li>
+              <li><a href="<?php echo base_url()?>projects/index">Projects</a></li>
             </ul>
           </li>
         </ul>
       </nav><!-- #nav-menu-container -->
-    </div>
-  </header><!-- #header -->
+      </div>
+</div>
+</div>
+<div class="col-sm-1"></div>
+  <div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-10">
+  <br>

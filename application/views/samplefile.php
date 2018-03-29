@@ -1,6 +1,4 @@
 <?php
-use \setasign\Fpdi\TcpdfFpdi;
- 
 //============================================================+
 // File name   : example_022.php
 // Begin       : 2008-03-04
@@ -27,8 +25,14 @@ use \setasign\Fpdi\TcpdfFpdi;
  */
 
 // Include the main TCPDF library (search for installation path).
-require_once (APPPATH.'libraries/'.'src/autoload.php');
-require_once (APPPATH.'libraries/'.'fpdf/fpdf.php');
+// require_once (APPPATH.'libraries/'.'src/autoload.php');
+// require_once (APPPATH.'libraries/'.'fpdf/fpdf.php');
+// require_once (APPPATH.'libraries/'.'src/fpdi.php');
+// require_once (APPPATH.'libraries/'.'fpdf/TcpdfFpdi.php');
+
+
+
+
 // class Pdf extends Fpdi\TcpdfFpdi
 // {
 //     /**
@@ -58,18 +62,69 @@ require_once (APPPATH.'libraries/'.'fpdf/fpdf.php');
 //         // emtpy method body
 //     }
 // }
-$pdf = new \setasign\Fpdi\Fpdi();
-$pdf->setSourceFile(base_url('assets/bgy.pdf'));
-$$pdf->tplId = $pdf->importPage(1);
+use setasign\Fpdi;
+require_once (APPPATH.'libraries/'.'fpdf/fpdf.php');
+require_once (APPPATH.'libraries/'.'src/autoload.php');
 
-$size = $pdf->useImportedPage($pdf->tplId, 130, 5, 60);
+$pdf = new Fpdi\Fpdi();
+// add a page
+$pdf->AddPage();
+$pageCount = $pdf->setSourceFile(base_url('assets/bgy.pdf'));
+for ($i = 1; $i <= $pageCount; $i++) {
+    $tplIdx = $pdf->importPage($i, '/MediaBox');
+    $pdf->AddPage();
+    $pdf->useTemplate($tplIdx);
+}
 
-$pdf->SetFont('freesans', 'B', 20);
-$pdf->SetTextColor(0);
-$pdf->SetXY(PDF_MARGIN_LEFT, 5);
-$pdf->Cell(0, $size['height'], 'TCPDF and FPDI');
 
+// class myPdf extends Fpdi\TcpdfFpdi
+// {
+//     /**
+//      * "Remembers" the template id of the imported page
+//      */
+//     protected $tplId;
 
+//     /**
+//      * Draw an imported PDF logo on every page
+//      */
+//     function Header()
+//     {
+//         $varInAnyScope = base_url('assets/try.pdf');
+//         if (is_null($this->tplId)) {
+//             $this->setSourceFile($varInAnyScope);
+            
+//             $this->tplId = $this->importPage(1);
+//         }
+//         $size = $this->useImportedPage($this->tplId, 130, 5, 60);
+
+//         $this->SetFont('freesans', 'B', 20);
+//         $this->SetTextColor(0);
+//         $this->SetXY(PDF_MARGIN_LEFT, 5);
+//         $this->Cell(0, $size['height'], 'TCPDF and FPDI');
+//     }
+
+//     function Footer()
+//     {
+//         // emtpy method body
+//     }
+// }
+
+// // initiate PDF
+// $pdf = new myPdf();
+// $pdf->SetMargins(PDF_MARGIN_LEFT, 40, PDF_MARGIN_RIGHT);
+// $pdf->SetAutoPageBreak(true, 40);
+
+// // add a page
+// $pdf->AddPage();
+
+// // get external file content
+// $utf8text = file_get_contents('tcpdf/examples/data/utf8test.txt', true);
+
+// $pdf->SetFont('freeserif', '', 12);
+// // now write some text above the imported page
+// $pdf->Write(5, $utf8text);
+
+// $pdf->Output();
 
 
 //ito tama

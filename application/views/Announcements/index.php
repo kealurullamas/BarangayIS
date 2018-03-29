@@ -1,11 +1,10 @@
-<div class="container">
+<div class="container" style="background-color:white;height:1000px">
 <br>
     <h2><?php echo $title?></h2>
     <table class="table table-bordered">
         <thead>
             <tr class="d-flex">
-                <th class="col-9">Announcement</th>
-                <th class="col-3">Date</th>
+                <th class="col-sm-9">Announcement</th>
                
             </tr>
         </thead>
@@ -19,3 +18,6 @@
         </tbody>
     </table>
 </div>
+</div>
+</div>
+<br>
