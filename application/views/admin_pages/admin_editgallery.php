@@ -1,28 +1,30 @@
+
 <div class="">
     <!-- Website Overview -->
     <div class="panel panel-default">
         <div class="panel-heading">
-        <h3 class="panel-title">Edit Announcement</h3>
+        <h3 class="panel-title">Edit Image in Gallery</h3>
         </div>
         <div class="panel-body">
             <?php $attributes = ['id' => 'myform'];?>
-            <?php echo form_open('admins/updateannouncement/'.$row['id'], $attributes); ?>
+            <?php echo form_open_multipart('admins/edit_gallery/'.$row['id'], $attributes); ?>
                 <?php if($this->session->flashdata('error')): ?>
                 <span class="text-danger"><?php echo $this->session->flashdata('error') ?></span>
+                <?php elseif($this->session->flashdata('errorfiletype')): ?>
+                    <span class="text-danger">
+                    <?php echo $this->session->flashdata('errorfiletype'); ?>
+                    </span>
                 <?php endif;?>
                 <div class="form-group">
                 <?php if($this->session->flashdata('error')): ?>
                 <span class="text-danger">*</span>
                 <?php endif; ?>
-                <label>Announcement Title</label>
-                <input type="text" name="announcementtitle" class="form-control" value="<?php echo $row['title'] ?>">
+                <label>Title</label>
+                <input type="text" name="title" class="form-control" value="<?php echo $row['title'] ?>">
                 </div>
                 <div class="form-group">
-                <?php if($this->session->flashdata('error')): ?>
-                <span class="text-danger">*</span>
-                <?php endif; ?>
-                <label>Announcement Body</label>
-                <textarea name="announcementbody" class="form-control ckeditor"><?php echo $row['body']?></textarea>
+                    <label>Upload Image</label>
+                    <input type="file" name="img" class="form-control-file" id="image_upload">
                 </div>
                 <div class="float-right">
                 <button type="submit" class="btn btn-primary confirm-edit">Submit</button>

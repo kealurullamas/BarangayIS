@@ -42,13 +42,6 @@
             <span class="nav-link-text">Announcements</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="News">
-          <a class="nav-link" href="<?php echo base_url('Admin_Pages/news');?>">
-            <i class="fa fa-fw fa-newspaper-o"></i>
-            <span class="nav-link-text">News</span>
-          </a>
-         
-        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Citizens">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-users"></i>
@@ -63,6 +56,32 @@
             </li>
           </ul>
         </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Events">
+          <a class="nav-link" href="<?php echo base_url('Admin_Pages/events');?>">
+            <i class="fa fa-fw fa-calendar"></i>
+            <span class="nav-link-text">Events</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Gallery">
+          <a class="nav-link" href="<?php echo base_url('Admin_Pages/gallery');?>">
+            <i class="fa fa-fw fa-image"></i>
+            <span class="nav-link-text">Gallery</span>
+          </a>
+         
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="News">
+          <a class="nav-link" href="<?php echo base_url('Admin_Pages/news');?>">
+            <i class="fa fa-fw fa-newspaper-o"></i>
+            <span class="nav-link-text">News</span>
+          </a>         
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Projects">
+          <a class="nav-link" href="<?php echo base_url('Admin_Pages/projects');?>">
+            <i class="fa fa-fw fa-gavel"></i>
+            <span class="nav-link-text">Projects</span>
+          </a>
+        </li>
+       
         <!-- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-file"></i>
@@ -152,9 +171,22 @@
               <span class="">Add Announcement</span>
             </a>
             <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="<?php echo base_url('admin_pages/addevent'); ?>">
+              <span class="">Add Event</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="<?php echo base_url('admin_pages/addgallery'); ?>">
+              <span class="">Add Image in Gallery</span>
+            </a>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="<?php echo base_url('admin_pages/addnews'); ?>">
               <span class="">Add News</span>
             </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="<?php echo base_url('admin_pages/addproject'); ?>">
+              <span class="">Add Project</span>
+            </a>
+           
         </li>
         <!-- <li class="nav-item">
           <form class="form-inline my-2 my-lg-0 mr-lg-2">

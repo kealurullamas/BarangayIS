@@ -11,6 +11,10 @@
                         <span class="text-danger">
                         <?php echo $this->session->flashdata('error'); ?>
                         </span>
+                        <?php elseif($this->session->flashdata('errorfiletype')): ?>
+                    <span class="text-danger">
+                    <?php echo $this->session->flashdata('errorfiletype'); ?>
+                    </span>
                 <?php endif; ?>
                 <div class="form-group">
                 <?php if($this->session->flashdata('error')): ?>
@@ -24,7 +28,7 @@
                         <span class="text-danger">*</span>
                 <?php endif; ?>
                 <label>News Body</label>
-                <textarea name="newsbody" class="form-control"><?php echo $row['body'] ?></textarea>
+                <textarea name="newsbody" class="form-control ckeditor"><?php echo $row['body'] ?></textarea>
                 </div>
                 <div class="form-group">
                     <label>Upload Image</label>
@@ -38,7 +42,7 @@
     </div>
 </div>
 <!-- Edit Modal-->
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="deleteLabel" aria-hidden="true">
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
             <div class="modal-content">
                     <div class="modal-header">

@@ -2,8 +2,8 @@
 
     class Admins extends CI_Controller{
         public function login(){
-            $this->form_validation->set_rules('username','Username','required');
-            $this->form_validation->set_rules('password','Password','required');
+            $this->form_validation->set_rules('username','Username','trim|required');
+            $this->form_validation->set_rules('password','Password','trim|required');
             
             if($this->form_validation->run()){
                 $username = $this->input->post('username');
@@ -62,8 +62,8 @@
 
         public function createnews(){
         
-            $this->form_validation->set_rules('newstitle','Title','required');
-            $this->form_validation->set_rules('newsbody','Body','required');
+            $this->form_validation->set_rules('newstitle','Title','trim|required');
+            $this->form_validation->set_rules('newsbody','Body','trim|required');
                 if($this->form_validation->run()===FALSE){
                     $data = ['error' => '* field is required'];
                     $this->session->set_flashdata($data);
@@ -105,8 +105,8 @@
             
 
             public function createannouncement(){
-                $this->form_validation->set_rules('announcementtitle','Title', 'required');
-                $this->form_validation->set_rules('announcementbody', 'Body', 'required');
+                $this->form_validation->set_rules('announcementtitle','Title', 'trim|required');
+                $this->form_validation->set_rules('announcementbody', 'Body', 'trim|required');
                 if($this->form_validation->run()){
                     $this->announcements_model->create_announcement();
                     $data =['success' => TRUE];
@@ -129,14 +129,19 @@
             }
 
             public function updatenews($id){
-                 $this->form_validation->set_rules('newstitle', 'Title', 'required');
-                 $this->form_validation->set_rules('newsbody', 'Body', 'required');
+                 $this->form_validation->set_rules('newstitle', 'Title', 'trim|required');
+                 $this->form_validation->set_rules('newsbody', 'Body', 'trim|required');
 
                  if($this->form_validation->run()){
                     if($this->news_model->update_news($id)){
                         $data = ['success' => TRUE];
                         $this->session->set_flashdata($data);
                         redirect('admin_pages/news', 'refresh');
+                    }
+                    else{
+                        $data = ['errorfiletype' => 'Invalid filetype'];
+                        $this->session->set_flashdata($data);  
+                        redirect('admin_pages/editnews/'.$id);
                     }
                 }
                 else{
@@ -152,8 +157,8 @@
             }
 
             public function updateannouncement($id){
-                $this->form_validation->set_rules('announcementtitle', 'Title', 'required');
-                $this->form_validation->set_rules('announcementbody', 'Body', 'required');
+                $this->form_validation->set_rules('announcementtitle', 'Title', 'trim|required');
+                $this->form_validation->set_rules('announcementbody', 'Body', 'trim|required');
                 if($this->form_validation->run()){
                     $this->announcements_model->update_announcement($id);
                     $data = ['success' => TRUE];
@@ -168,11 +173,11 @@
             }
 
             public function addcitizen(){
-                $this->form_validation->set_rules('lastname', 'Last Name', 'required');
-                $this->form_validation->set_rules('firstname', 'First Name', 'required');
-                $this->form_validation->set_rules('middlename', 'Middle Name', 'required');
-                $this->form_validation->set_rules('address', 'Address', 'required');
-                $this->form_validation->set_rules('gender', 'Gender', 'required');
+                $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required');
+                $this->form_validation->set_rules('firstname', 'First Name', 'trim|required');
+                $this->form_validation->set_rules('middlename', 'Middle Name', 'trim|required');
+                $this->form_validation->set_rules('address', 'Address', 'trim|required');
+                $this->form_validation->set_rules('gender', 'Gender', 'trim|required');
                 
                 if($this->form_validation->run()){
                     $lastname = $this->input->post('lastname');
@@ -196,10 +201,10 @@
             }
 
             public function updatecitizen($id){
-                $this->form_validation->set_rules('lastname', 'Last Name', 'required');
-                $this->form_validation->set_rules('firstname', 'First Name', 'required');
-                $this->form_validation->set_rules('middlename', 'Middle Name', 'required');
-                $this->form_validation->set_rules('address', 'Address', 'required');
+                $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required');
+                $this->form_validation->set_rules('firstname', 'First Name', 'trim|required');
+                $this->form_validation->set_rules('middlename', 'Middle Name', 'trim|required');
+                $this->form_validation->set_rules('address', 'Address', 'trim|required');
                 
                 if($this->form_validation->run()){
                     $lastname = $this->input->post('lastname');
@@ -235,24 +240,27 @@
             }
 
             public function adduser(){
-                
+                $this->form_validation->set_rules('AddAdmin_username,', 'Username', 'trim');
+                $this->form_validation->set_rules('AddAdmin_password,', 'Password', 'trim');
                 $username = $this->input->post('AddAdmin_username');
                 $password = $this->input->post('AddAdmin_password');
                 $type = 'Admin';
                 
-
-                $available = $this->user_model->username_availability($username);
-                if($available){
-                    $this->user_model->add_user($username, $password, $type);
-                    $data = ['available' => 'Added Successfully!'];
-                    $this->session->set_flashdata($data);
-                    redirect('admin_pages/users');
+                if($this->form_validation->run()){
+                    $available = $this->user_model->username_availability($username);
+                    if($available){
+                        $this->user_model->add_user($username, $password, $type);
+                        $data = ['available' => 'Added Successfully!'];
+                        $this->session->set_flashdata($data);
+                        redirect('admin_pages/users');
+                    }
+                    else{
+                        $data = ['notavailable' => 'Failed! Username already exists!'];
+                        $this->session->set_flashdata($data);
+                        redirect('admin_pages/users');
+                    }
                 }
-                else{
-                    $data = ['notavailable' => 'Failed! Username already exists!'];
-                    $this->session->set_flashdata($data);
-                    redirect('admin_pages/users');
-                }
+                
             }
 
             public function deleteuser($id){
@@ -284,9 +292,9 @@
             }
 
             public function security_updatepassword($id){
-                $this->form_validation->set_rules('currentpw', 'Current Password', 'required');
-                $this->form_validation->set_rules('newpw', 'New Password', 'required');
-                $this->form_validation->set_rules('confirmnew', 'Confirm New Password', 'required|matches[newpw]');
+                $this->form_validation->set_rules('currentpw', 'Current Password', 'trim|required');
+                $this->form_validation->set_rules('newpw', 'New Password', 'trim|required');
+                $this->form_validation->set_rules('confirmnew', 'Confirm New Password', 'trim|required|matches[newpw]');
 
                 if($this->form_validation->run()){
                     $current = $this->input->post('currentpw');
@@ -320,6 +328,122 @@
                 
             }
 
+            public function add_pictogallery()
+            {
+                $this->form_validation->set_rules('title','Title','trim|required');
+                if($this->form_validation->run())
+                {
+                    if($this->gallery_model->createGallery()){
+                        $data = ['success' => TRUE];
+                        $this->session->set_flashdata($data);
+                        redirect('admin_pages/addgallery');
+                    }
+                    else{
+                        $data = ['errorfiletype' => 'Invalid filetype'];
+                        $this->session->set_flashdata($data); 
+                        redirect('admin_pages/addgallery');
+                    }
+
+                }
+                else
+                {
+                    $data = ['error' => '*field is required'];
+                    $this->session->set_flashdata($data);
+                    $this->load->view('templates/admin_footer');
+                }
+            }
+
+            public function edit_gallery($id){
+                $this->form_validation->set_rules('title','Title','trim|required');
+                if($this->form_validation->run())
+                {
+                    
+                    if($this->gallery_model->editGallery($id)){
+                        $data = ['success' => TRUE];
+                        $this->session->set_flashdata($data);
+                        redirect('admin_pages/gallery');
+                    }
+                    else{
+                        $data = ['errorfiletype' => 'Invalid filetype'];
+                        $this->session->set_flashdata($data); 
+                        redirect('admin_pages/editgallery/'.$id);
+                    }
+
+                }
+                else
+                {
+                    $data = ['error' => '*field is required'];
+                    $this->session->set_flashdata($data);
+                    redirect('admin_pages/editgallery/'.$id);
+                }
+            }
+
+            public function delete_gallery($id){
+                echo json_encode(array("status" => TRUE));
+                $data = ['deletesuccess' => TRUE];
+                $this->session->set_flashdata($data);
+                $this->gallery_model->delete_gallery($id);
+            }
+
+            public function deleteevent($id){
+                echo json_encode(array("status" => TRUE));
+                $data = ['deletesuccess' => TRUE];
+                $this->session->set_flashdata($data);
+                $this->event_model->delete_event($id);
+            }
+
+            public function addproject(){
+                $this->form_validation->set_rules('projecttitle', 'Title', 'trim|required');
+                $this->form_validation->set_rules('projectobjective', 'Objective', 'trim|required');
+                $this->form_validation->set_rules('projectdescription', 'Description', 'trim|required');
+                $this->form_validation->set_rules('projectlocation', 'Location', 'trim|required');
+                $this->form_validation->set_rules('projectbudget', 'Budget', 'trim|required');
+                $this->form_validation->set_rules('projectfundsource', 'Fund Source', 'trim|required');
+
+                if($this->form_validation->run()){
+                    $data = ['success' => TRUE];
+                    $this->session->set_flashdata($data);
+                    $this->projects_model->create_projects();
+                    redirect('admin_pages/addproject');
+                }
+                else{
+                    $data = ['error' => '* field is required'];
+                    $this->session->set_flashdata($data);
+                    redirect('admin_pages/addproject');
+                }
+            }
+
+            public function deleteproject($id){
+                echo json_encode(array("status" => TRUE));
+                $data = ['deletesuccess' => TRUE];
+                $this->session->set_flashdata($data);
+                $this->projects_model->delete_project($id);
+            }
+            
+            public function editproject($id){
+                $this->form_validation->set_rules('projecttitle', 'Title', 'trim|required');
+                $this->form_validation->set_rules('projectobjective', 'Objective', 'trim|required');
+                $this->form_validation->set_rules('projectdescription', 'Description', 'trim|required');
+                $this->form_validation->set_rules('projectlocation', 'Location', 'trim|required');
+                $this->form_validation->set_rules('projectbudget', 'Budget', 'trim|required');
+                $this->form_validation->set_rules('projectfundsource', 'Fund Source', 'trim|required');
+
+                if($this->form_validation->run()){
+                    $data = ['success' => TRUE];
+                    $this->session->set_flashdata($data);
+                    $this->projects_model->edit_project($id);
+                    redirect('admin_pages/projects');
+                }
+                else{
+                    $data = ['error' => '* field is required'];
+                    $this->session->set_flashdata($data);
+                    redirect('admin_pages/editproject/'.$id);
+                }             
+            }
+
 
     }
 ?>
+
+ 
+                            

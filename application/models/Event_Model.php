@@ -11,6 +11,11 @@
             return $query->result_array();
         }
 
+        public function get_allevents(){
+            $query = $this->db->get('event');
+            return $query->result_array();
+        }
+
         public function get_event($id){
             return $this->db->get_where('event',array('id'=>$id));
         }
@@ -24,7 +29,8 @@
         }
 
         public function delete_event($id){
-
+            $this->db->where('id', $id);
+            $this->db->delete('event');
         }
     }
 ?>

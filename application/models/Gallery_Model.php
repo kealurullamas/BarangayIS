@@ -47,7 +47,51 @@
                 ];
 
                 $this->db->insert('gallery',$data);
+                return true;
             }
+            else{
+                return false;
+            }
+        }
+
+        public function getImageGallery($id){
+            $this->db->where('id', $id);
+            $query = $this->db->get('gallery');
+            return $query->row_array();
+        }
+
+        public function editGallery($id){
+            $slug=url_title($this->input->post('title'));
+
+            $config=[
+                'upload_path'=>'assets/img',
+                'allowed_types'=>'jpg|jpeg|bmp',
+                'max_size'=>0,
+                'filename'=>url_title($this->input->post('img')),
+                'encrypt_name'=>true
+            ];
+
+            $this->load->library('upload',$config);
+
+            if($this->upload->do_upload('img'))
+            {
+                $data=[
+                    'title'=>$this->input->post('title'),
+                    'slug'=>$slug,
+                    'image'=>$this->upload->file_name
+                ];
+                $this->db->where('id', $id);
+                $this->db->update('gallery',$data);
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        public function delete_gallery($id){
+            $this->db->where('id', $id);
+            $this->db->delete('gallery');
         }
     } 
 ?>
