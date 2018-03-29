@@ -44,10 +44,10 @@
                     <td style="width: 35%"><?php echo word_limiter($news['body'], 20); ?></td>
                     <td style="width: 15%"><?php echo $news['image'] ?></td>
                     <td style="width: 30%" align="center">
-                        <a href="<?php echo base_url('Admin_Pages/editnews/'.$news['id']); ?>" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                        <a href="<?php echo base_url('Admin_Pages/editnews/'.$news['id']); ?>" class="mt-1 ml-1 mb-1 btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-fw fa-edit"></i> Edit</a>
                         <!-- <button type="button" class="btn btn-danger btn-sm" onclick="delete_news(<?php echo $news['id']; ?>, '<?php echo $news['title'];?>')"><i class="fa fa-fw fa-trash-o"></i> Delete
                         </button> -->
-                        <button type="button" class="btn btn-danger btn-sm confirm-delete" data-url="<?php echo site_url('admins/deletenews/')?>" data-id="<?php echo $news['id']; ?>"><i class="fa fa-fw fa-trash-o"></i> Delete</button>
+                        <button type="button" class="mt-1 ml-1 mb-1 btn btn-danger btn-sm confirm-delete" data-url="<?php echo site_url('admins/deletenews/')?>" data-id="<?php echo $news['id']; ?>"><i class="fa fa-fw fa-trash-o"></i> Delete</button>
                      </td>
                     </tr>
                 <?php endforeach; ?>

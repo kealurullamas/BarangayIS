@@ -1,3 +1,6 @@
+
+
+
 $(document).ready(function(){
 	$('.mySelect').combobox()
   
@@ -23,6 +26,88 @@ $(document).ready(function(){
 
     //       }
     // }
+    
+    $('#GAS_Name').on('click', function(e){
+        e.preventDefault();
+        if($('#GAS_NameBody').is(':hidden')) {
+            $('div #GAS_Name').html('Hide <a class="fa fa-fw fa-window-minimize"></a>');
+        }
+        else{
+            $('div #GAS_Name').html('Edit <a class="fa fa-fw fa-window-maximize"></a>');
+        }
+        $('#GAS_NameBody').fadeToggle();
+        
+    });
+    $('#GAS_Username').on('click', function(e){
+        e.preventDefault();
+        if($('#GAS_UsernameBody').is(':hidden')){
+            $('div #GAS_Username').html('Hide <a class="fa fa-fw fa-window-minimize"></a>');
+        }
+        else{
+            $('div #GAS_Username').html('Edit <a class="fa fa-fw fa-window-maximize"></a>');
+        }
+        $('#GAS_UsernameBody').fadeToggle();
+    });
+    
+    $('#SAL_Login').on('click', function(e){
+        e.preventDefault();
+        if($('#SAL_LoginBody').is(':hidden')) {
+            $('div #SAL_Login').html('Hide <a class="fa fa-fw fa-window-minimize"></a>');
+        }
+        else{
+            $('div #SAL_Login').html('Hide <a class="fa fa-fw fa-window-maximize"></a>');
+        }
+        $('#SAL_LoginBody').fadeToggle();
+    });
+
+    $('#adduserfor').validate({
+        rules: {
+                    AddAdmin_username: {
+                        required: true,
+                        
+                    },
+                    AddAdmin_password: {
+                        required: true,
+                        
+                    },
+                    AddAdmin_confirmpassword:{
+                        required: true,
+                        equalTo: '#AddAdmin_passwordID'
+                        
+                    }
+                },
+                highlight: function (element) {
+                    $(element).closest('.form-group').addClass('has-error');
+                    $(element).addClass('select-class');                      
+                
+                },
+                unhighlight: function (element) {
+                    $(element).closest('.form-group').removeClass('has-error');
+                    $(element).removeClass('select-class');   
+                },
+                errorClass: 'help-block',
+           
+                
+              
+      });
+
+      
+      $('#adduserModal').on('hidden.bs.modal', function () {
+        var validator = $('#adduserform').validate();
+        validator.resetForm();
+        $('input').removeClass('select-class');  
+        $('input').val("");
+        
+      });
+      
+
+    $('.topbar').on('click', '#adduser', function(e){
+        e.preventDefault();
+
+        $('#adduserModal').modal('show');
+    });
+    
+
     $( '.alert').show().fadeOut( 5000 );
     
     $('.panel-body').on('click', '.confirm-edit', function(e) {
@@ -31,10 +116,28 @@ $(document).ready(function(){
         $('#editModal').modal('show');
     });
 
+    $('.panel-body').on('click', '.confirm-edituname', function(e) {
+        e.preventDefault();
+   
+        $('#editModaluname').modal('show');
+    });
+
+    $('.panel-body').on('click', '.confirm-editpw', function(e) {
+        e.preventDefault();
+   
+        $('#editModalpw').modal('show');
+    });
+
     $('#btnUpdate').click(function() {
         $("#myform" ).submit();
     });
-    
+    $('#btnUpdateuname').click(function() {
+        $("#myform2" ).submit();
+    });
+    $('#btnUpdatepw').click(function() {
+        $("#myform3" ).submit();
+    });
+ 
    // delete confirmation using a modal
       //pass data from to modal
       $('#dataTable').on('click', '.confirm-delete', function(e) {

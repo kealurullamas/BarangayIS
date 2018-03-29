@@ -25,6 +25,12 @@
                         Login
                     </div>
                     <div class="form-group">
+                            <div class="text-center">
+                            <?php if($this->session->flashdata('loginfailed')): ?>
+                            <span class="text-danger">
+                            <?php echo $this->session->flashdata('loginfailed'); ?>
+                            <?php endif; ?>
+                            </div>
                         <input type="text" class="form-control" name="username" placeholder="Username">
                             <?php if($this->session->flashdata('username_error')): ?>
                             <span class="text-danger">

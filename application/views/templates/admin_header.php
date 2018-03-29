@@ -17,7 +17,7 @@
   <!-- Custom styles for this template-->
   <link href="<?php echo base_url(); ?>assets/admin/css/sb-admin.css" rel="stylesheet">
   <link rel="stylesheet" href="<?php echo base_url('assets/admin/combobox/css/bootstrap-combobox.css'); ?>">
-  
+
 </head>
 
 <body>
@@ -30,7 +30,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Home">
           <a class="nav-link" href="<?php echo base_url('Admin_Pages/view');?>">
             <i class="fa fa-fw fa-home"></i>
             <span class="nav-link-text">Home</span>
@@ -49,7 +49,7 @@
           </a>
          
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Citizens">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-users"></i>
             <span class="nav-link-text">Citizens</span>
@@ -155,9 +155,6 @@
             <a class="dropdown-item" href="<?php echo base_url('admin_pages/addnews'); ?>">
               <span class="">Add News</span>
             </a>
-            
-           
-    
         </li>
         <!-- <li class="nav-item">
           <form class="form-inline my-2 my-lg-0 mr-lg-2">
@@ -171,9 +168,25 @@
             </div>
           </form>
         </li> -->
-        <li class="nav-item">
-            <a class="btn btn-link" href="#">ADMIN NAME</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle mr-lg-2 " id="ContentCreationDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <?php echo $this->session->userdata('username');?>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="contentDropdown">
+             <?php if($this->session->userdata('type') == 'Super Admin'):?>
+            <a class="dropdown-item" href="<?php echo base_url('admin_pages/users'); ?>">
+              <span class="">View Accounts</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <?php endif; ?>
+            <a class="dropdown-item" href="<?php echo base_url('admin_pages/usersettings'); ?>">
+              <span class="">User Settings</span>
+            </a>
+                       
         </li>
+        <!-- <li class="nav-item">
+            <a class="btn " href="<?php echo base_url('admin_pages/users'); ?>"><?php echo $this->session->userdata('username'); ?></a>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link" data-toggle="modal" data-target="#logoutModal">
             <i class="fa fa-fw fa-sign-out"></i>Logout</a>

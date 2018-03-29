@@ -9,10 +9,7 @@
         </div>
       </div>
     </footer>
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-      <i class="fa fa-angle-up"></i>
-    </a>
+   
 <!-- Bootstrap core JavaScript-->
     <script src="<?php echo base_url(); ?>assets/admin/vendor/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -28,10 +25,13 @@
     <script src="<?php echo base_url(); ?>assets/admin/js/sb-admin-datatables.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/js/sb-admin-charts.min.js"></script>
     <!-- ownmade js -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
     <script src="<?php echo base_url('assets/admin/js/sb-admin-ownmade.js'); ?>"></script>
     
     <script src="<?php echo base_url('assets/admin/combobox/js/bootstrap-combobox.js'); ?>"></script>
     <script src="<?php echo base_url('assets/CKEditor/ckeditor.js');?>"></script>
+    
+   
   </div>
 </body>
 

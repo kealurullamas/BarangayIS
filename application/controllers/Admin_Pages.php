@@ -24,6 +24,17 @@
             $this->load->view('admin_pages/admin_home');
             $this->load->view('templates/admin_footer');
         }
+
+        public function users(){
+            if(empty($this->session->userdata('username'))){
+                redirect('admin', 'refresh');
+            }
+            $data = ['users' => $this->user_model->get_allusers()];
+            $this->load->view('templates/admin_header');
+            $this->load->view('templates/superadmin_addadmin');
+            $this->load->view('admin_pages/admin_users', $data);
+            $this->load->view('templates/admin_footer');
+        }
         
         public function news(){
             if(empty($this->session->userdata('username'))){
@@ -131,6 +142,17 @@
             $this->load->view('admin_pages/admin_citizens', $data);
             $this->load->view('templates/admin_footer');
 
+        }
+
+        public function usersettings(){
+            if(empty($this->session->userdata('username'))){
+                redirect('admin', 'refresh');
+            }
+            $data = ['user' => $this->user_model->getuser($this->session->userdata('user_id'))];
+            $this->load->view('templates/admin_header');
+            $this->load->view('templates/superadmin_addadmin');
+            $this->load->view('admin_pages/admin_usersettings', $data);
+            $this->load->view('templates/admin_footer');
         }
         
     }

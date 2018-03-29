@@ -10,11 +10,12 @@
                 $password = $this->input->post('password');
 
                 $user = $this->user_model->login_user($username, $password);
-
+                $loginfail = ['loginfailed' => "The password you've entered is incorrect."];
                 if($user){
                     $user_data = [
                         'user_id' => $user['id'],
                         'username' => $user['username'],
+                        'type' => $user['type'],
                         'logged_in' => TRUE
                     ];
 
@@ -25,11 +26,13 @@
                         $this->load->view('templates/admin_footer');
                     }
                     else{
+                        $this->session->set_flashdata($loginfail);
                         redirect('admin', 'refresh');
                     }
                 
                 }
                 else{
+                    $this->session->set_flashdata($loginfail);
                     redirect('admin', 'refresh');
                 }
             }   
@@ -230,5 +233,93 @@
                 $this->session->set_flashdata($data);
                 $this->citizen_model->delete_citizen($id);
             }
+
+            public function adduser(){
+                
+                $username = $this->input->post('AddAdmin_username');
+                $password = $this->input->post('AddAdmin_password');
+                $type = 'Admin';
+                
+
+                $available = $this->user_model->username_availability($username);
+                if($available){
+                    $this->user_model->add_user($username, $password, $type);
+                    $data = ['available' => 'Added Successfully!'];
+                    $this->session->set_flashdata($data);
+                    redirect('admin_pages/users');
+                }
+                else{
+                    $data = ['notavailable' => 'Failed! Username already exists!'];
+                    $this->session->set_flashdata($data);
+                    redirect('admin_pages/users');
+                }
+            }
+
+            public function deleteuser($id){
+                echo json_encode(["status" => TRUE]);
+                $data = ['deletesuccess' => TRUE];
+                $this->session->set_flashdata($data);
+                $this->user_model->delete_user($id);
+               
+            }
+
+            public function general_updatename($id){
+                $firstname = $this->input->post('firstname');
+                $middlename = $this->input->post('middlename');
+                $lastname = $this->input->post('lastname');
+
+                $data = ['success' => TRUE];
+                $this->session->set_flashdata($data);
+                $this->user_model->general_updatename($id, $firstname, $middlename, $lastname);
+                redirect('admin_pages/usersettings');
+            }
+
+            public function general_updateusername($id){
+                $username = $this->input->post('updateusername');
+               
+                $data = ['success' => TRUE];
+                $this->session->set_flashdata($data);
+                $this->user_model->general_updateusername($id, $username);
+                redirect('admin_pages/usersettings');
+            }
+
+            public function security_updatepassword($id){
+                $this->form_validation->set_rules('currentpw', 'Current Password', 'required');
+                $this->form_validation->set_rules('newpw', 'New Password', 'required');
+                $this->form_validation->set_rules('confirmnew', 'Confirm New Password', 'required|matches[newpw]');
+
+                if($this->form_validation->run()){
+                    $current = $this->input->post('currentpw');
+                    $new = $this->input->post('newpw');
+                    $confirmnew = $this->input->post('confirmnew');
+                    
+                    $user = $this->user_model->getuser($id);
+                    if(password_verify($current, $user['password'])){
+                        $this->user_model->general_updatepassword($id, $new);
+                        $data = ['success' => TRUE];
+                        $this->session->set_flashdata($data);
+                        redirect('admin_pages/usersettings');
+                    }
+                    else{
+                        $data = [ 'currentpwmismatch' => 'Failed! Incorrect current password!'];
+                        $this->session->set_flashdata($data);
+                        redirect('admin_pages/usersettings');
+                    }
+                }
+                else{
+                    $data = [
+                        'current' => form_error('currentpw'),
+                        'new' => form_error('newpw'),
+                        'confirmnew' => form_error('confirmnew'),
+                        'errorpw' => TRUE
+                    ];
+                    $this->session->set_flashdata($data);
+                    redirect('admin_pages/usersettings');
+                }
+                
+                
+            }
+
+
     }
 ?>
