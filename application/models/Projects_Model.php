@@ -9,8 +9,8 @@
                 $query=$this->db->get('projects',5);
                 return $query->result_array();
             }
-            $query=$this->db->get_where('projects',array('slug'=>$slug));
-            return $query->result_array();
+            $query=$this->db->get_where('projects',array('project_slug'=>$slug));
+            return $query->row_array();
         }
 
         public function getall(){

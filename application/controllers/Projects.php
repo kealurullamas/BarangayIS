@@ -31,5 +31,17 @@
             //return redirect to wherever
             
         }
+
+        public function view($title){
+    
+            $data=[
+                'project'=>$this->projects_model->get_project($title),
+                'title'=>'Project'
+            ];
+
+            $this->load->view('templates/header');
+            $this->load->view('Projects/view',$data);
+            $this->load->view('templates/footer');
+        }
     }
 ?>

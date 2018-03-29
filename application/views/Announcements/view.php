@@ -1,6 +1,7 @@
-<div class="container">
+
+<div  class="container" style="background-color:white;height:800px">
 <br>
-    <h2><?php echo $title?></h2>
+<h2><?php echo $title?></h2>
     <table class="table table-bordered">
         <thead>
             <tr class="d-flex">
@@ -19,3 +20,7 @@
         </tbody>
     </table>
 </div>
+</div>
+</div>
+</div>
+<br>

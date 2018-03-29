@@ -15,7 +15,7 @@
                         <div class="carousel-item active">
                         <img style="width:100%;  height:300" src="<?php echo base_url('assets/img/'.$news['image'])?>">
                         <div class="carousel-caption">
-                            <h6><a href="#"><?php echo $news['title']?></a></h6>
+                            <h6><a href="<?php echo site_url('news/'.$news['slug'])?>"><?php echo $news['title']?></a></h6>
                             <small><?php echo word_limiter($news['body'],10);?><a class="label label-primary" href="<?php echo site_url('/news/'.$news['slug'])?>" >Read More</a></small>
                         </div>
                         </div><!-- End Item -->
@@ -23,7 +23,7 @@
                     <div class="carousel-item">
                         <img style="width:100%;  height:300" src="<?php echo base_url('assets/img/'.$news['image'])?>">
                         <div class="carousel-caption">
-                        <h6><a href="#"><?php echo $news['title']?></a></h6>
+                        <h6><a href="<?php echo site_url('/news/'.$news['slug'])?>"><?php echo $news['title']?></a></h6>
                         <small><?php echo word_limiter($news['body'],25);?><a class="label label-primary" href="<?php echo site_url('/news/'.$news['slug'])?>" >Read More</a></small>
                         </div>
                     </div><!-- End Item -->
@@ -90,25 +90,11 @@
             </div>
             <div class="card-footer">
                 <div class="container text-center">
-                    <small><a href="#" style="text-decoration:underline;" class="cardlink">View All</a></small>
+                    <small><a href="<?php echo base_url('announcements/viewAll')?>" style="text-decoration:underline;" class="cardlink">View All</a></small>
                 </div>
             </div>
             </div>
 
-            <div class="card text-white bg-primary mb-3" style="max-width: 22rem;">
-            <div class="card-header" >Events</div>
-            <div class="card-body">
-                <div class="container">
-                <ul class="list-group" >
-                    <li ><small>Cras justo odio</small> </li>
-                    <li>Dapibus ac facilisis in</li>
-                    <li>Morbi leo risus</li>
-                    <li >Porta ac consectetur ac</li>
-                    <li >Vestibulum at eros</li>
-                </ul>
-                </div>
-            </div>
-            </div>
             <div class="card text-white bg-secondary mb-3" style="max-width: 22rem;">
             <div class="card-header" >News</div>
             <div class="card-body">
@@ -124,16 +110,49 @@
             </div>
             <div class="card-footer">
                 <div class="container text-center">
+                    <small><a href="<?php echo base_url('news/view_all')?>" style="text-decoration:underline;" class="cardlink">View All</a></small>
+                </div>
+            </div>
+            </div>
+
+            <div class="card text-white bg-secondary mb-3" style="max-width: 22rem;">
+            <div class="card-header" >Featured Sites</div>
+            <div class="card-body">
+                <div class="container">
+                <ul class="list-group" >
+                    <li><small><a class="cardlink" href="http://www.binan.gov.ph/" target="_blank">Biñan City Web Portal</a></small></li>
+                    <li><small><a class="cardlink" href="https://www.facebook.com/pages/Binan-City-hall/111081312304992?ref=br_rs" target="_blank">Biñan City Hall Facebook Page</a></small></li>
+                </ul>
+               
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="container text-center">
                     <small><a href="#" style="text-decoration:underline;" class="cardlink">View All</a></small>
                 </div>
             </div>
             </div>
+
+            <!-- <div class="card text-white bg-secondary mb-3" style="max-width: 22rem;">
+            <div class="card-header" >Events</div>
+            <div class="card-body">
+                <div class="container">
+                    <div id="calendar"></div>
+                <ul class="list-group" >
+                    <li ><small>Cras justo odio</small> </li>
+                    <li>Dapibus ac facilisis in</li>
+                    <li>Morbi leo risus</li>
+                    <li >Porta ac consectetur ac</li>
+                    <li >Vestibulum at eros</li>
+                </ul>
+                </div>
+            </div>
+            </div> -->
+            
         </div>
         <hr>
         <!--start of projects-->
         <!-- style="background-color:#4ca6d8; -->
- 
-
         <div class="card-deck">
             <div class="card text-white bg-secondary mb-3" style="max-width: 34rem;">
             <div class="card-header" >Projects</div>
@@ -141,14 +160,14 @@
                 <div class="container">
                 <ul class="list-group" >
                     <?php foreach($projects as $project):?> 
-                    <li><small><a class="cardlink" href=""><?php echo $project['title'];?></a></small></li>
+                    <li><small><a class="cardlink" href="<?php echo site_url('projects/'.$project['project_slug'])?>"><?php echo $project['title'];?></a></small></li>
                     <?php endforeach?>
                 </ul>
                 </div>
             </div>
             <div class="card-footer">
                 <div class="container text-center">
-                    <small><a href="#" style="text-decoration:underline;" class="cardlink">View All</a></small>
+                    <small><a href="<?php echo base_url('projects/index')?>" style="text-decoration:underline;" class="cardlink">View All</a></small>
                 </div>
             </div>
             </div>
@@ -171,8 +190,46 @@
             </div>
             </div>
         </div>
-        <!-- end projects -->
         <hr>
+        <!-- end projects -->
+
+        <!--start events-->
+        <div class="card-deck">
+            <div class="card text-white bg-secondary mb-3" style="max-width: 34rem;">
+            <div class="card-header" >Barangay Events</div>
+            <div class="card-body">
+                <div id="calendar">
+                
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="container text-center">
+                    <small><a href="<?php echo base_url('projects/index')?>" style="text-decoration:underline;" class="cardlink">View All</a></small>
+                </div>
+            </div>
+            </div>
+            <div class="card text-white bg-secondary mb-3" style="max-width: 34rem;">
+            <div class="card-header" >Ordinance</div>
+            <div class="card-body">
+                <div class="container">
+               <?php echo form_open()?>
+               <div class="form-group">
+                <input type="text" name="title" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Search for Barangay Ordinance">
+                </div>
+                <button type="submit"  class="btn btn-primary float-right">Submit</button>
+               <?php form_close()?>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="container text-center">
+                    <small><a href="#" style="text-decoration:underline;" class="cardlink ">Ordinance</a></small>
+                </div>
+            </div>
+            </div>
+        </div>
+        <hr>
+        <!--End events -->
+
         <!-- Start Gallery -->
          <div class="container">
 
