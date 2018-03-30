@@ -4,7 +4,8 @@
             $this->load->database();
         }
         public function get_all_ordinance(){
-
+            $query=$this->db->get('ordinance');
+            return $query->result_array();
         }
         public function get_ordinance($search){
             $this->db->like('title',$search);

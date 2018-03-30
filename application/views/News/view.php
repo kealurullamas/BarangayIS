@@ -1,5 +1,5 @@
-<div  class="container" style="background-color:white;">
-<br>
+<div  class="container" style="background-color:white;padding:50px">
+
     <!-- Post Content Column -->
     <div class="col-lg-12">
 

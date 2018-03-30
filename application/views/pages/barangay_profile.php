@@ -1,5 +1,4 @@
-<div class="container">
-    <br>
+<div class="container" style="background-color:white;height:1050px;padding:50px">
     <h1 style="" align="left">
         <span tabindex="-1" style="outline: none"><b>Barangay Profile</b></span>
     </h1>
@@ -53,3 +52,7 @@
         </p>
     </span>
 </div>
+
+</div>
+</div>
+<br>

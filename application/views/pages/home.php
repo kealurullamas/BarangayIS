@@ -185,7 +185,7 @@
             </div>
             <div class="card-footer">
                 <div class="container text-center">
-                    <small><a href="#" style="text-decoration:underline;" class="cardlink ">Ordinance</a></small>
+                    <small><a href="<?php echo base_url('ordinances/viewAll')?>" style="text-decoration:underline;" class="cardlink ">Ordinance</a></small>
                 </div>
             </div>
             </div>

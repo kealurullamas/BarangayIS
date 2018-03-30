@@ -45,9 +45,10 @@ background-size:contain;
           <li class="menu-active"><a href="<?php echo base_url().'Pages/view/home'?>">Home</a></li>
           <li class="menu-has-children"><a class="cardlink" href="">About Us</a>
             <ul>
-              <li><a href="<?php echo base_url().'Pages/view/mission_and_vision'?>">Mission and Vision</a></li>
-              <li><a href="<?php echo base_url().'Pages/view/barangay_council'?>">Barangay Council</a></li>
-              <li><a href="<?php echo base_url().'Pages/view/barangay_profile'?>">Barangay Profile</a></li>
+              <li><a href="<?php echo base_url('Pages/view/mission_and_vision')?>">Mission and Vision</a></li>
+              <li><a href="<?php echo base_url('ordinances/viewAll')?>">Barangay Ordinance</a></li>
+              <li><a href="<?php echo base_url('Pages/view/barangay_council')?>">Barangay Council</a></li>
+              <li><a href="<?php echo base_url('Pages/view/barangay_profile')?>">Barangay Profile</a></li>
               <li><a href="#">Plans and Programs</a></li>
               <li><a href="#">Financial Reports</a></li>
               <li><a href="#">Contacts</a></li>
