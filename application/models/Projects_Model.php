@@ -20,15 +20,41 @@
         public function create_projects(){   
             $proj_slug=url_title($this->input->post('title'));
             $data=[
-                'title'=>$this->input->post('title'),
-                'objective'=>$this->input->post('projObj'),
-                'description'=>$this->input->post('projDesc'),
-                'location'=>$this->input->post('projLoc'),
-                'budget'=>$this->input->post('projBud'),
-                'fund_source'=>$this->input->post('projSource'),
+                'title'=>$this->input->post('projecttitle'),
+                'objective'=>$this->input->post('projectobjective'),
+                'description'=>$this->input->post('projectdescription'),
+                'location'=>$this->input->post('projectlocation'),
+                'budget'=>$this->input->post('projectbudget'),
+                'fund_source'=>$this->input->post('projectfundsource'),
                 'project_slug'=>$proj_slug
             ];    
             $this->db->insert('projects',$data);
+        }
+
+        public function delete_project($id){
+            $this->db->where('id', $id);
+            $this->db->delete('projects');
+        }
+
+        public function get_specificproject($id){
+            $this->db->where('id', $id);
+            $query = $this->db->get('projects');
+            return $query->row_array();
+        }
+
+        public function edit_project($id){
+            $proj_slug = url_title($this->input->post('title'));
+            $data = [
+                'title'=>$this->input->post('projecttitle'),
+                'objective'=>$this->input->post('projectobjective'),
+                'description'=>$this->input->post('projectdescription'),
+                'location'=>$this->input->post('projectlocation'),
+                'budget'=>$this->input->post('projectbudget'),
+                'fund_source'=>$this->input->post('projectfundsource'),
+                'project_slug'=>$proj_slug
+            ];    
+            $this->db->where('id', $id);
+            $this->db->update('projects',$data);
         }
     }
 ?>

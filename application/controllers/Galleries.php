@@ -31,21 +31,6 @@
             $this->load->view('Galleries/index');
             $this->load->view('templates/footer');
         }
-        public function create()
-        {
-            $this->form_validation->set_rules('title','Title','required');
-            if($this->form_validation->run()===FALSE)
-            {
-                $data['title']='Upload Photo';
-                $this->load->view('templates/header');
-                $this->load->view('Galleries/create',$data);
-                $this->load->view('templates/footer');
-            }
-            else
-            {
-                $this->gallery_model->createGallery();
-                redirect('galleries/create');
-            }
-        }
+        
     }
 ?>

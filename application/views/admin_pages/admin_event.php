@@ -1,4 +1,4 @@
-        <?php if($this->session->flashdata('success')): ?>
+<?php if($this->session->flashdata('success')): ?>
         <div class="alert alert-success alert-dismissible" role="alert">
             <strong>Updated Successfully!</strong>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -14,37 +14,42 @@
                 </button>
         </div>
         <?php endif;?>
-         <!--DataTables announcement-->
+         <!--DataTables event-->
          <div class="card mb-3">
         <div class="card-header">
-            <i class="fa fa-table"></i> Announcements</div>
+            <i class="fa fa-table"></i> Events</div>
         <div class="card-body">
             <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                 <tr>
                     <th>Title</th>
-                    <th>Body</th>
+                    <th>Start</th>
+                    <th>End</th>
+                    <th>Description</th>
                     <th>Action</th>
                 </tr>
                 </thead>
                 <tfoot>
                 <tr>
                     <th>Title</th>
-                    <th>Body</th>
+                    <th>Start</th>
+                    <th>End</th>
+                    <th>Description</th>
                     <th>Action</th>
                 </tr>
                 </tfoot>
                 <tbody>
                 
-                <?php foreach($announcements as $announcement): ?>
+                <?php foreach($events as $event): ?>
                     <tr>
-                    <td style="width: 20%"><?php echo $announcement['title'] ?></td>
-                    <td style="width: 50%"><?php echo word_limiter($announcement['body'], 20); ?></td>
-                    <td style="width: 30%" align="center">
-                        <a href="<?php echo base_url('Admin_Pages/editannouncement/'.$announcement['id']);?>" class="mt-1 ml-1 mb-1 btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-fw fa-edit"></i> Edit</a>
-                        <!-- <button type="button" class="btn btn-info btn-sm" data-toggle='modal' data-target="#editModal"><i class="fa fa-fw fa-edit"></i> Edit</button> -->
-                        <button type="button" class="mt-1 ml-1 mb-1 btn btn-danger btn-sm confirm-delete" data-url="<?php echo site_url('admins/deleteannouncement/')?>" data-id="<?php echo $announcement['id']; ?>"><i class="fa fa-fw fa-trash-o"></i> Delete</button>
+                    <td style="width: "><?php echo $event['title'] ?></td>
+                    <td style="width: "><?php echo $event['start']; ?></td>
+                    <td style="width: "><?php echo $event['end']; ?></td>
+                    <td style="width: "><?php echo $event['description']; ?></td>
+                    <td style="width: " align="center">
+                        <a href="<?php echo base_url('Admin_Pages/editevent/'.$event['id']);?>" class="mt-1 ml-1 mb-1 btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                        <button type="button" class="mt-1 ml-1 mb-1 btn btn-danger btn-sm confirm-delete" data-url="<?php echo site_url('admins/deleteevent/')?>" data-id="<?php echo $event['id']; ?>"><i class="fa fa-fw fa-trash-o"></i> Delete</button>
                      </td>
                     </tr>
                 <?php endforeach; ?>
@@ -53,7 +58,7 @@
             </table>
             </div>
         </div>
-        <div class="card-footer small text-muted">Updated <?php echo $announcement['created_at'] ?></div>
+        
         </div>
         <!-- Delete Modal-->
         <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteLabel" aria-hidden="true">
