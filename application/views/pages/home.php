@@ -175,9 +175,9 @@
             <div class="card-header" >Ordinance</div>
             <div class="card-body">
                 <div class="container">
-               <?php echo form_open()?>
+               <?php echo form_open('ordinances/search')?>
                <div class="form-group">
-                <input type="text" name="title" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Search for Barangay Ordinance">
+                <input type="text" name="ord" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Search for Barangay Ordinance">
                 </div>
                 <button type="submit"  class="btn btn-primary float-right">Submit</button>
                <?php form_close()?>
@@ -185,7 +185,7 @@
             </div>
             <div class="card-footer">
                 <div class="container text-center">
-                    <small><a href="#" style="text-decoration:underline;" class="cardlink ">Ordinance</a></small>
+                    <small><a href="<?php echo base_url('ordinances/viewAll')?>" style="text-decoration:underline;" class="cardlink ">Ordinance</a></small>
                 </div>
             </div>
             </div>
@@ -195,7 +195,7 @@
 
         <!--start events-->
         <div class="card-deck">
-            <div class="card text-white bg-secondary mb-3" style="max-width: 34rem;">
+            <div class="card text-white bg-secondary mb-3" style="max-width: 34rem;height:28rem">
             <div class="card-header" >Barangay Events</div>
             <div class="card-body">
                 <div id="calendar">
@@ -204,25 +204,20 @@
             </div>
             <div class="card-footer">
                 <div class="container text-center">
-                    <small><a href="<?php echo base_url('projects/index')?>" style="text-decoration:underline;" class="cardlink">View All</a></small>
+                    <small><a href="<?php echo base_url('events/index')?>" style="text-decoration:underline;" class="cardlink">View Events</a></small>
                 </div>
             </div>
             </div>
-            <div class="card text-white bg-secondary mb-3" style="max-width: 34rem;">
-            <div class="card-header" >Ordinance</div>
+            <div class="card text-white bg-secondary mb-3" style="max-width: 34rem;height:28rem">
+            <div class="card-header" >Barangay Map</div>
             <div class="card-body">
-                <div class="container">
-               <?php echo form_open()?>
-               <div class="form-group">
-                <input type="text" name="title" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Search for Barangay Ordinance">
-                </div>
-                <button type="submit"  class="btn btn-primary float-right">Submit</button>
-               <?php form_close()?>
-                </div>
+                
+                <div id="map" style="width:500px;height:300px"></div>
+               
             </div>
             <div class="card-footer">
                 <div class="container text-center">
-                    <small><a href="#" style="text-decoration:underline;" class="cardlink ">Ordinance</a></small>
+                    <small><a href="#" style="text-decoration:underline;" class="cardlink ">Map</a></small>
                 </div>
             </div>
             </div>

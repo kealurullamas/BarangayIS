@@ -1,6 +1,12 @@
 <?php
     class Events extends CI_Controller{
 
+        public function index(){
+            $data['title']="Barangay Events";
+            $this->load->view('templates/header');
+            $this->load->view('Events/index',$data);
+            $this->load->view('templates/footer');
+        }
 
         public function get_events(){
             $start=$this->input->get("start");
