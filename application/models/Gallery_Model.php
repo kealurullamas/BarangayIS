@@ -93,5 +93,9 @@
             $this->db->where('id', $id);
             $this->db->delete('gallery');
         }
+
+        public function count_images(){
+            return $numrows = $this->db->count_all_results('gallery');
+        }
     } 
 ?>

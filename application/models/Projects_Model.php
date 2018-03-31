@@ -56,5 +56,9 @@
             $this->db->where('id', $id);
             $this->db->update('projects',$data);
         }
+
+        public function count_projects(){
+            return $numrows = $this->db->count_all_results('projects');
+        }
     }
 ?>

@@ -1,83 +1,104 @@
-<?php if($this->session->flashdata('success')): ?>
+        <?php if($this->session->flashdata('success')): ?>
         <div class="alert alert-success alert-dismissible" role="alert">
-            <strong>Updated Successfully!</strong>
+            <strong><?php echo $this->session->flashdata('success'); ?></strong>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
         </div>
         <?php endif;?>
-        <?php if($this->session->flashdata('deletesuccess')): ?>
-        <div class="alert alert-success alert-dismissible" role="alert">
-            <strong>Deleted Successfully!</strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        <h3 class="panel-title">Events</h3>
         </div>
-        <?php endif;?>
-         <!--DataTables event-->
-         <div class="card mb-3">
-        <div class="card-header">
-            <i class="fa fa-table"></i> Events</div>
-        <div class="card-body">
-            <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Start</th>
-                    <th>End</th>
-                    <th>Description</th>
-                    <th>Action</th>
-                </tr>
-                </thead>
-                <tfoot>
-                <tr>
-                    <th>Title</th>
-                    <th>Start</th>
-                    <th>End</th>
-                    <th>Description</th>
-                    <th>Action</th>
-                </tr>
-                </tfoot>
-                <tbody>
-                
-                <?php foreach($events as $event): ?>
-                    <tr>
-                    <td style="width: "><?php echo $event['title'] ?></td>
-                    <td style="width: "><?php echo $event['start']; ?></td>
-                    <td style="width: "><?php echo $event['end']; ?></td>
-                    <td style="width: "><?php echo $event['description']; ?></td>
-                    <td style="width: " align="center">
-                        <a href="<?php echo base_url('Admin_Pages/editevent/'.$event['id']);?>" class="mt-1 ml-1 mb-1 btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-fw fa-edit"></i> Edit</a>
-                        <button type="button" class="mt-1 ml-1 mb-1 btn btn-danger btn-sm confirm-delete" data-url="<?php echo site_url('admins/deleteevent/')?>" data-id="<?php echo $event['id']; ?>"><i class="fa fa-fw fa-trash-o"></i> Delete</button>
-                     </td>
-                    </tr>
-                <?php endforeach; ?>
-                
-                </tbody>
-            </table>
-            </div>
+        <div class="panel-body">
+            <div id="calendar"></div>
         </div>
-        
-        </div>
-        <!-- Delete Modal-->
-        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteLabel" aria-hidden="true">
+    </div>
+
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Delete Record</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Create Event</h5>
                         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
+                        <?php echo form_open('events/add_event'); ?>
                         </div>
-                        <div class="modal-body">Are you sure you want to delete this record?</div>
-                        <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a style="color:white" class="btn btn-primary" id="btnConfirm">Confirm</a>
+                        <div class="modal-body">
+                            <div class="form-group">
+                            <label>Title</label>
+                            <input type="text" class="form-control" name="title">
+                            <label>Start Date</label>
+                            <input type="text"  class="form-control" name="startdate" id="startdate">
+                            <label>End Date</label>
+                            <input type="text"  class="form-control" name="enddate" id="enddate">
+                            <label>Description</label>
+                            <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+                            </div>
                         
                         </div>
+                        <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <button type="submit" style="color:white" class="btn btn-primary">Confirm</button>
+                        </div>
+                        <?php echo form_close();?>
                     </div>
                     </div>
-        </div>
+        </div> 
 
         
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editLabel" aria-hidden="true"> -->
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit / Delete Event</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <?php echo form_open('events/edit_event'); ?>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="p-in" class="col-md-4 label-heading">Event Name</label>
+                                <div class="col-md-8 ui-front">
+                                    <input type="text" class="form-control" name="title" value="" id="title">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="p-in" class="col-md-4 label-heading">Description</label>
+                                <div class="col-md-8 ui-front">
+                                    <input type="text" class="form-control" name="description" id="edit_description">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="p-in" class="col-md-4 label-heading">Start Date</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" name="start_date" id="start_date">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="p-in" class="col-md-4 label-heading">End Date</label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control" name="end_date" id="end_date">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                    <label for="p-in" class="col-md-4 label-heading">Delete Event</label>
+                                    <div class="col-md-8">
+                                        <input type="checkbox" name="delete" value="1">
+                                    </div>
+                            </div>
+                        <input type="hidden" name="eventid" id="event_id" value="0" />
+                        </div>
+
+                        
+                        <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <button type="submit" style="color:white" class="btn btn-primary">Confirm</button>
+                        </div>
+                        <?php echo form_close();?>
+                    </div>
+                    </div>
+        </div>  

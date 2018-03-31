@@ -19,9 +19,16 @@
             if(empty($this->session->userdata('username'))){
                 redirect('admin', 'refresh');
             }
-            
+            $data =  [
+                'announcementscount' => $this->announcements_model->count_announcements(),
+                'citizenscount' => $this->citizen_model->count_citizens(),
+                'eventscount' => $this->event_model->count_events(),
+                'imagescount' => $this->gallery_model->count_images(),
+                'newscount' => $this->news_model->count(),
+                'projectscount' => $this->projects_model->count_projects()
+            ];
             $this->load->view('templates/admin_header');
-            $this->load->view('admin_pages/admin_home');
+            $this->load->view('admin_pages/admin_home', $data);
             $this->load->view('templates/admin_footer');
         }
 
@@ -201,15 +208,7 @@
             $this->load->view('templates/admin_footer');
         }
 
-        public function editevent($id){
-            if(empty($this->session->userdata('username'))){
-                redirect('admin', 'refresh');
-            }
-            $data['row'] = $this->event_model->get_event($id);
-            $this->load->view('templates/admin_header');
-            $this->load->view('admin_pages/admin_editevent', $data);
-            $this->load->view('templates/admin_footer');
-        }
+    
 
         public function projects(){
             if(empty($this->session->userdata('username'))){

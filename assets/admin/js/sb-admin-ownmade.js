@@ -157,12 +157,15 @@ $(document).ready(function(){
       $('#btnConfirm').click(function() {
           var id = $('#deleteModal').data('id');
           var url = $('#deleteModal').data('url');
+          var babycomeback = "YOHOHO";
           $('#deleteModal').modal('hide');
+         
           $.ajax({
                   url : url+id,
                   type: "POST",
                   dataType: "JSON",
-                  success: function(data)
+                  
+                  success: function(data, textStatus)
                   {
                     location.reload();
                   },
@@ -208,83 +211,6 @@ $(document).ready(function(){
                 }
             }
             $('#familyTable tbody').append(html);  
-        // var OLDTOYOUNGINDIRECTFAMILYRELATIONMALE = [["Brother","Nephew","Grand-Nephew","Great-Grand-Nephew","2nd Great-Grand-Nephew", "3rd Great-Grand-Nephew", "4th Great-Grand-Nephew", "5th Great-Grand-Nephew" ],
-        // [ "Nephew", "First Cousin","First Cousin Once Removed","First Twice Removed","First Cousin 3x Removed","First Cousin 4x Removed", "First Cousin 5x Removed", "First Cousin 6x Removed" ],
-        // [ "Grand-Newphew", "First Cousin Once Removed","Second Cousin","Second Cousin Once Removed","Second Cousin Twice Removed","Second Cousin 3x Removed", "Second Cousin 4x Removed", "Second Cousin 5x Removed" ],
-        // [ "Great-Grand-Nephew", "First Cousin Twice Removed","Second Cousin Once Removed","Third Cousin","Third Cousin Once Removed","Third Cousin Twice Removed", "Third Cousin 3x Removed", "Third Cousin 4x Removed" ],
-        // [ "2nd Great-Grand-Nephew", "First Cousin 3x Removed","Second Cousin Twice Removed","Third Cousin Once Removed","Fourth Cousin","Fourth Cousin Once Removed", "Fourth Cousin Twice Removed", "Fourth Cousin 3x Removed" ],
-        // [ "3rd Great-Grand-Nephew", "First Cousin 4x Removed","Second Cousin 3x Removed","Third Cousin Twice Removed","Fourth Cousin Once Removed","Fifth Cousin", "Fifth Cousin Once Removed", "Fifth Cousin Twice Removed" ],
-        // [ "4th Great-Grand-Nephew", "First Cousin 5x Removed","Second Cousin 4x Removed","Third Cousin 3x Removed","Fourth Cousin Twice Removed","Fifth Cousin Once Removed", "Sixth Cousin", "Sixth Cousin Once Removed" ],
-        // [ "5th Great-Grand-Nephew", "First Cousin 6x Removed","Second Cousin 5x Removed","Third Cousin 4x Removed","Fourth Cousin 3x Removed","Fifth Cousin Twice Removed", "Sixt Cousin Once Removed", "Seventh Cousin" ]];
-    
-        // var OLDTOYOUNGINDIRECTFAMILYRELATIONFEMALE = [["Sister","Niece","Grand-Niece","Great-Grand-Niece","2nd Great-Grand-Niece", "3rd Great-Grand-Niece", "4th Great-Grand-Niece", "5th Great-Grand-Niece" ],
-        // [ "Nephew", "First Cousin","First Cousin Once Removed","First Twice Removed","First Cousin 3x Removed","First Cousin 4x Removed", "First Cousin 5x Removed", "First Cousin 6x Removed" ],
-        // [ "Grand-Niece", "First Cousin Once Removed","Second Cousin","Second Cousin Once Removed","Second Cousin Twice Removed","Second Cousin 3x Removed", "Second Cousin 4x Removed", "Second Cousin 5x Removed" ],
-        // [ "Great-Grand-Niece", "First Cousin Twice Removed","Second Cousin Once Removed","Third Cousin","Third Cousin Once Removed","Third Cousin Twice Removed", "Third Cousin 3x Removed", "Third Cousin 4x Removed" ],
-        // [ "2nd Great-Grand-Niece", "First Cousin 3x Removed","Second Cousin Twice Removed","Third Cousin Once Removed","Fourth Cousin","Fourth Cousin Once Removed", "Fourth Cousin Twice Removed", "Fourth Cousin 3x Removed" ],
-        // [ "3rd Great-Grand-Niece", "First Cousin 4x Removed","Second Cousin 3x Removed","Third Cousin Twice Removed","Fourth Cousin Once Removed","Fifth Cousin", "Fifth Cousin Once Removed", "Fifth Cousin Twice Removed" ],
-        // [ "4th Great-Grand-Niece", "First Cousin 5x Removed","Second Cousin 4x Removed","Third Cousin 3x Removed","Fourth Cousin Twice Removed","Fifth Cousin Once Removed", "Sixth Cousin", "Sixth Cousin Once Removed" ],
-        // [ "5th Great-Grand-Niece", "First Cousin 6x Removed","Second Cousin 5x Removed","Third Cousin 4x Removed","Fourth Cousin 3x Removed","Fifth Cousin Twice Removed", "Sixt Cousin Once Removed", "Seventh Cousin" ]];
-       
-        // var OLDTOYOUNGDIRECTFAMILYRELATIONMALE = [["Brother","Son","Grand-Son","Great-Grand-Son","2nd Great-Grand-Son", "3rd Great-Grand-Son", "4th Great-Grand-Son", "5th Great-Grand-Son" ],
-        // [ "Son", null, null, null, null, null, null, null ],
-        // [ "Grand-Son", null, null, null, null, null, null, null ],
-        // [ "Great-Grand-Son", null, null, null, null, null, null, null ],
-        // [ "2nd Great-Grand-Son", null, null, null, null, null, null, null ],
-        // [ "3rd Great-Grand-Son", null, null, null, null, null, null, null ],
-        // [ "4th Great-Grand-Son", null, null, null, null, null, null, null ],
-        // [ "5th Great-Grand-Son", null, null, null, null, null, null, null ]];
-
-        // var OLDTOYOUNGDIRECTFAMILYRELATIONFEMALE =  [["Sister", "Daughter", "Grand-Daughter","Great-Grand-Daughter","2nd Great-Grand-Daughter", "3rd Great-Grand-Daughter", "4th Great-Grand-Daughter", "5th Great-Grand-Daughter" ],
-        // [ "Daughter", null, null, null, null, null, null, null ],
-        // [ "Grand-Daughter", null, null, null, null, null, null, null ],
-        // [ "Great-Grand-Daughter", null, null, null, null, null, null, null ],
-        // [ "2nd Great-Grand-Daughter", null, null, null, null, null, null, null ],
-        // [ "3rd Great-Grand-Daughter", null, null, null, null, null, null, null ],
-        // [ "4th Great-Grand-Daughter", null, null, null, null, null, null, null ],
-        // [ "5th Great-Grand-Daughter", null, null, null, null, null, null, null ]];
-
-        // var YOUNGTOOLDINDIRECTFAMILYRELATIONMALE =  [["Brother","Uncle","Grand-Uncle","Great-Grand-Uncle","2nd Great-Grand-Uncle", "3rd Great-Grand-Uncle", "4th Great-Grand-Uncle", "5th Great-Grand-Uncle" ],
-        // [ "Uncle", "First Cousin","First Cousin Once Removed","First Twice Removed","First Cousin 3x Removed","First Cousin 4x Removed", "First Cousin 5x Removed", "First Cousin 6x Removed" ],
-        // [ "Grand-Uncle", "First Cousin Once Removed","Second Cousin","Second Cousin Once Removed","Second Cousin Twice Removed","Second Cousin 3x Removed", "Second Cousin 4x Removed", "Second Cousin 5x Removed" ],
-        // [ "Great-Grand-Uncle", "First Cousin Twice Removed","Second Cousin Once Removed","Third Cousin","Third Cousin Once Removed","Third Cousin Twice Removed", "Third Cousin 3x Removed", "Third Cousin 4x Removed" ],
-        // [ "2nd Great-Grand-Uncle", "First Cousin 3x Removed","Second Cousin Twice Removed","Third Cousin Once Removed","Fourth Cousin","Fourth Cousin Once Removed", "Fourth Cousin Twice Removed", "Fourth Cousin 3x Removed" ],
-        // [ "3rd Great-Grand-Uncle", "First Cousin 4x Removed","Second Cousin 3x Removed","Third Cousin Twice Removed","Fourth Cousin Once Removed","Fifth Cousin", "Fifth Cousin Once Removed", "Fifth Cousin Twice Removed" ],
-        // [ "4th Great-Grand-Uncle", "First Cousin 5x Removed","Second Cousin 4x Removed","Third Cousin 3x Removed","Fourth Cousin Twice Removed","Fifth Cousin Once Removed", "Sixth Cousin", "Sixth Cousin Once Removed" ],
-        // [ "5th Great-Grand-Uncle", "First Cousin 6x Removed","Second Cousin 5x Removed","Third Cousin 4x Removed","Fourth Cousin 3x Removed","Fifth Cousin Twice Removed", "Sixt Cousin Once Removed", "Seventh Cousin" ]];
-
-        // var YOUNGTOOLDINDIRECTFAMILYRELATIONFEMALE =  [["Sister","Aunt","Grand-Aunt","Great-Grand-Aunt","2nd Great-Grand-Aunt", "3rd Great-Grand-Aunt", "4th Great-Grand-Aunt", "5th Great-Grand-Aunt" ],
-        // [ "Aunt", "First Cousin","First Cousin Once Removed","First Twice Removed","First Cousin 3x Removed","First Cousin 4x Removed", "First Cousin 5x Removed", "First Cousin 6x Removed" ],
-        // [ "Grand-Aunt", "First Cousin Once Removed","Second Cousin","Second Cousin Once Removed","Second Cousin Twice Removed","Second Cousin 3x Removed", "Second Cousin 4x Removed", "Second Cousin 5x Removed" ],
-        // [ "Great-Grand-Aunt", "First Cousin Twice Removed","Second Cousin Once Removed","Third Cousin","Third Cousin Once Removed","Third Cousin Twice Removed", "Third Cousin 3x Removed", "Third Cousin 4x Removed" ],
-        // [ "2nd Great-Grand-Aunt", "First Cousin 3x Removed","Second Cousin Twice Removed","Third Cousin Once Removed","Fourth Cousin","Fourth Cousin Once Removed", "Fourth Cousin Twice Removed", "Fourth Cousin 3x Removed" ],
-        // [ "3rd Great-Grand-Aunt", "First Cousin 4x Removed","Second Cousin 3x Removed","Third Cousin Twice Removed","Fourth Cousin Once Removed","Fifth Cousin", "Fifth Cousin Once Removed", "Fifth Cousin Twice Removed" ],
-        // [ "4th Great-Grand-Aunt", "First Cousin 5x Removed","Second Cousin 4x Removed","Third Cousin 3x Removed","Fourth Cousin Twice Removed","Fifth Cousin Once Removed", "Sixth Cousin", "Sixth Cousin Once Removed" ],
-        // [ "5th Great-Grand-Aunt", "First Cousin 6x Removed","Second Cousin 5x Removed","Third Cousin 4x Removed","Fourth Cousin 3x Removed","Fifth Cousin Twice Removed", "Sixt Cousin Once Removed", "Seventh Cousin" ]];
-
-        // var YOUNGTOOLDDIRECTFAMILYRELATIONMALE = [["Brother","Father","Grand-Father","Great-Grand-Father","2nd Great-Grand-Father", "3rd Great-Grand-Father", "4th Great-Grand-Father", "5th Great-Grand-Father" ],
-        // [ "Father", null, null, null, null, null, null, null ],
-        // [ "Grand-Father", null, null, null, null, null, null, null ],
-        // [ "Great-Grand-Father", null, null, null, null, null, null, null ],
-        // [ "2nd Great-Grand-Father", null, null, null, null, null, null, null ],
-        // [ "3rd Great-Grand-Father", null, null, null, null, null, null, null ],
-        // [ "4th Great-Grand-Father", null, null, null, null, null, null, null ],
-        // [ "5th Great-Grand-Father", null, null, null, null, null, null, null ]];
-
-        // var YOUNGTOOLDDIRECTFAMILYRELATIONFEMALE =  [["Brother","Mother","Grand-Mother","Great-Grand-Mother","2nd Great-Grand-Mother", "3rd Great-Grand-Mother", "4th Great-Grand-Mother", "5th Great-Grand-Mother" ],
-        // [ "Mother", null, null, null, null, null, null, null ],
-        // [ "Grand-Mother", null, null, null, null, null, null, null ],
-        // [ "Great-Grand-Mother", null, null, null, null, null, null, null ],
-        // [ "2nd Great-Grand-Mother", null, null, null, null, null, null, null ],
-        // [ "3rd Great-Grand-Mother", null, null,   null, null, null, null, null ],
-        // [ "4th Great-Grand-Mother", null, null, null, null, null, null, null ],
-        // [ "5th Great-Grand-Mother", null, null, null, null, null, null, null ]];
-
-        
-          //relationship checker
-        
-    
-       
       });
    
     $('#familyModal').on('hidden.bs.modal', function() {
@@ -293,43 +219,68 @@ $(document).ready(function(){
         
     });
 
-    // function SupplyFamilyTree(personName)
-    //     {
-    //         familyTree = [];                   // declaration of FamilyTree
-                  
+    var calendar = $('#calendar');
+    $(calendar).fullCalendar({
+        header:{
+            left: 'prev, next, today',
+            center: 'title',
+            right: 'month, agendaWeek, agendaDay'
+        },
+        
+        theme: true,    
+        themeSystem:'bootstrap4',        
+        height: 500,
+        selectable: true,
+        selectHelpter: true,
+        editable: true,
+        eventColor: '#378006',
+        eventLimit: true,
+        eventSources: [
+            {
+                events: function(start, end, timezone, callback) {
+                    $.ajax({
+                        url: GLOBAL_BASEURL + 'events/get_allevents',
+                        dataType: 'json',
+                        data: {                
+                            start: start.unix(),
+                            end: end.unix()
+                        },
+                        success: function(msg) {
+                            var events = msg.events;
+                            callback(events);
+                        }
+                    });
+               }
+            },
+            ],
+        // dayClick: function(date, jsEvent, view) {
+        //     // alert('clicked ' + date.format() );
+        //   },
+        select: function(startDate, endDate, jsEvent, view, resource) {
+            // alert('selected ' + startDate.format("MM/DD/YYYY HH:mm") + ' to ' + endDate.format("MM/DD/YYYY HH:mm") );
+            $('#addModal').modal('show');
+            $('#addModal #startdate').val(startDate.format("YYYY/MM/DD HH:mm"));
+            $('#addModal #enddate').val(endDate.format("YYYY/MM/DD HH:mm"));
 
-    //         try
-    //         {
-    //             var count = 1;                      //para sa max size of inner arrays
-    //             var indexInPreviousLevel = 0;       //nag ttraverse sa previous level para pang supply ng father and mother
+        },
+        eventClick: function(event, jsEvent, view) {
+            $('#title').val(event.title);
+            $('#edit_description').val(event.description);
+            $('#start_date').val(moment(event.start).format('YYYY/MM/DD HH:mm'));
+            if(event.end) {
+            $('#end_date').val(moment(event.end).format('YYYY/MM/DD HH:mm'));
+            } else {
+            $('#end_date').val(moment(event.start).format('YYYY/MM/DD HH:mm'));
+            }
+            $('#event_id').val(event.id);
+            $('#editModal').modal('show');
+        }
+        
+    });
+    
+      
 
-    //             familyTree[0][0] = PersonList.Where(p => p.name.Equals(personName)).SingleOrDefault();   //for the root node, kung sino yung pinagcocompare
-    //             for (var x = 1; x < familyTree.Length; x++)             
-    //             {
-    //                 indexInPreviousLevel = 0;
-    //                 count *= 2;
 
-    //                 for (var y = 0; y < count; y++)
-    //                 {
-    //                     if (familyTree[x - 1][indexInPreviousLevel])          // supply father and mother of the person in the previous level
-    //                     {
-    //                         var father = PersonList.Where(p => p.name.Equals(familyTree[x - 1][indexInPreviousLevel].father)).SingleOrDefault() ?? null;
-    //                         familyTree[x][y] = father;
-    //                         y++;
-    //                         var mother = PersonList.Where(p => p.name.Equals(familyTree[x - 1][indexInPreviousLevel].mother)).SingleOrDefault();
-    //                         familyTree[x][y] = mother;
-    //                         indexInPreviousLevel++;
-    //                     }
-                        
-    //                 }
-    //             }
-    //             return familyTree;
-    //         }
-    //         catch (e)
-    //         {
-    //             Console.WriteLine(e);
-    //             return familyTree;
-    //         }
-    //     }
+   
 });  
 

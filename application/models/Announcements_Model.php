@@ -58,5 +58,9 @@
             $this->db->where('id', $id);
             $this->db->update('announcements', $data);
         }
+
+        public function count_announcements(){
+            return $numrows = $this->db->count_all_results('announcements');
+        }
     }
 ?>

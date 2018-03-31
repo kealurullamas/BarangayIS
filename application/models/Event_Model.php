@@ -21,16 +21,24 @@
         }
 
         public function add_event($data){
-
-        }
-
-        public function update_event($id,$data){
-
+            $this->db->insert("event", $data);
         }
 
         public function delete_event($id){
             $this->db->where('id', $id);
             $this->db->delete('event');
         }
+
+        public function update_event($id, $data) 
+        {
+            $this->db->where('id', $id);
+            $this->db->update("event", $data);
+        }
+
+        public function count_events(){
+            return $numrows = $this->db->count_all_results('event');
+        }
+    
+       
     }
 ?>

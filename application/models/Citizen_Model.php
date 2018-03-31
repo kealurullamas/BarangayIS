@@ -46,6 +46,10 @@
             $this->db->where('id', $id);
             $this->db->delete('citizen');
         }
+
+        public function count_citizens(){
+            return $numrows = $this->db->count_all_results('citizen');
+        }
     }
 
 ?>

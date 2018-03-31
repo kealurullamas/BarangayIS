@@ -30,6 +30,9 @@
     
     <script src="<?php echo base_url('assets/admin/combobox/js/bootstrap-combobox.js'); ?>"></script>
     <script src="<?php echo base_url('assets/CKEditor/ckeditor.js');?>"></script>
+    <script src="<?php echo base_url();?>assets/calendar/lib/moment.min.js"></script>
+    <script src="<?php echo base_url();?>assets/calendar/fullcalendar.min.js"></script>
+    <script src="<?php echo base_url();?>assets/calendar/gcal.js"></script>
     
    
   </div>

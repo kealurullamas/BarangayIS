@@ -21,9 +21,10 @@
 
                     $this->session->set_userdata($user_data);
                     if($this->session->userdata('username')){
-                        $this->load->view('templates/admin_header');       
-                        $this->load->view('admin_pages/admin_home', $user_data);
-                        $this->load->view('templates/admin_footer');
+                        // $this->load->view('templates/admin_header');       
+                        // $this->load->view('admin_pages/admin_home', $user_data);
+                        // $this->load->view('templates/admin_footer');
+                        redirect('admin_pages/view');
                     }
                     else{
                         $this->session->set_flashdata($loginfail);
@@ -122,7 +123,7 @@
             }
 
             public function deleteannouncement($id){
-                echo json_encode(array("status" => TRUE));
+                echo json_encode(array("status" => 'TRUE'));
                 $data = ['deletesuccess' => TRUE];
                 $this->session->set_flashdata($data);
                 $this->announcements_model->delete_announcement($id);
@@ -385,12 +386,6 @@
                 $this->gallery_model->delete_gallery($id);
             }
 
-            public function deleteevent($id){
-                echo json_encode(array("status" => TRUE));
-                $data = ['deletesuccess' => TRUE];
-                $this->session->set_flashdata($data);
-                $this->event_model->delete_event($id);
-            }
 
             public function addproject(){
                 $this->form_validation->set_rules('projecttitle', 'Title', 'trim|required');
@@ -415,7 +410,7 @@
 
             public function deleteproject($id){
                 echo json_encode(array("status" => TRUE));
-                $data = ['deletesuccess' => TRUE];
+                $data = ['deletesuccess' => 'Added Successfully!'];
                 $this->session->set_flashdata($data);
                 $this->projects_model->delete_project($id);
             }
@@ -440,6 +435,8 @@
                     redirect('admin_pages/editproject/'.$id);
                 }             
             }
+
+
 
 
     }
