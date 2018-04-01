@@ -60,6 +60,12 @@
           </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Events">
+          <a class="nav-link" href="<?php echo base_url('Admin_Pages/councils');?>">
+            <i class="fa fa-fw fa-users"></i>
+            <span class="nav-link-text">Councils</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Events">
           <a class="nav-link" href="<?php echo base_url('Admin_Pages/events');?>">
             <i class="fa fa-fw fa-calendar"></i>
             <span class="nav-link-text">Events</span>
@@ -78,9 +84,15 @@
             <span class="nav-link-text">News</span>
           </a>         
         </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Ordinances">
+          <a class="nav-link" href="<?php echo base_url('Admin_Pages/ordinances');?>">
+            <i class="fa fa-fw fa-gavel"></i>
+            <span class="nav-link-text">Ordinances</span>
+          </a>         
+        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Projects">
           <a class="nav-link" href="<?php echo base_url('Admin_Pages/projects');?>">
-            <i class="fa fa-fw fa-gavel"></i>
+            <i class="fa fa-fw fa-building"></i>
             <span class="nav-link-text">Projects</span>
           </a>
         </li>
@@ -106,6 +118,10 @@
               <span class="">Add Announcement</span>
             </a>
             <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="<?php echo base_url('admin_pages/addcouncil'); ?>">
+              <span class="">Add Council</span>
+            </a>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="<?php echo base_url('admin_pages/events'); ?>">
               <span class="">Add Event</span>
             </a>
@@ -116,6 +132,11 @@
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="<?php echo base_url('admin_pages/addnews'); ?>">
               <span class="">Add News</span>
+            </a>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="<?php echo base_url('admin_pages/addordinance'); ?>">
+              <span class="">Add Ordinance</span>
             </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="<?php echo base_url('admin_pages/addproject'); ?>">

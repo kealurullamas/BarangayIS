@@ -87,6 +87,9 @@
                     'slug' => url_title($this->input->post('newstitle')),
                     'image' => $this->upload->file_name
                 ];
+                $result = $this->get_rownews($id);
+                unlink(FCPATH . 'assets/img/'. $result['image']);
+                
                 $this->db->where('id', $id);
                 $this->db->update('news', $data);
 
@@ -99,6 +102,7 @@
         
         public function delete_news($id)
         {
+           
             $this->db->where('id', $id);
             $this->db->delete('news');
         }

@@ -157,7 +157,6 @@ $(document).ready(function(){
       $('#btnConfirm').click(function() {
           var id = $('#deleteModal').data('id');
           var url = $('#deleteModal').data('url');
-          var babycomeback = "YOHOHO";
           $('#deleteModal').modal('hide');
          
           $.ajax({

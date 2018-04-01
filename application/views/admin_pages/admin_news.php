@@ -41,9 +41,9 @@
                 <?php foreach($allnews as $news): ?>
                     <tr>
                     <td style="width: 20%"><?php echo $news['title'] ?></td>
-                    <td style="width: 35%"><?php echo word_limiter($news['body'], 20); ?></td>
-                    <td style="width: 15%"><?php echo $news['image'] ?></td>
-                    <td style="width: 30%" align="center">
+                    <td style="width: 40%"><?php echo word_limiter($news['body'], 20); ?></td>
+                    <td style="width: 15%"><img src="<?php echo base_url().'assets/img/'.$news['image']?>" alt="<?php $news['image'] ?>" class="img-responsive" height="100" width="200"></td>
+                    <td style="width: 25%" align="center">
                         <a href="<?php echo base_url('Admin_Pages/editnews/'.$news['id']); ?>" class="mt-1 ml-1 mb-1 btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-fw fa-edit"></i> Edit</a>
                         <!-- <button type="button" class="btn btn-danger btn-sm" onclick="delete_news(<?php echo $news['id']; ?>, '<?php echo $news['title'];?>')"><i class="fa fa-fw fa-trash-o"></i> Delete
                         </button> -->

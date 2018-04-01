@@ -65,7 +65,7 @@
 
             $config=[
                 'upload_path'=>'assets/img',
-                'allowed_types'=>'jpg|jpeg|bmp',
+                'allowed_types'=>'jpg|jpeg|png|bmp',
                 'max_size'=>0,
                 'filename'=>url_title($this->input->post('img')),
                 'encrypt_name'=>true
@@ -80,6 +80,9 @@
                     'slug'=>$slug,
                     'image'=>$this->upload->file_name
                 ];
+                $result = $this->getImageGallery($id);
+                unlink(FCPATH . 'assets/img/'.$result['image']);
+
                 $this->db->where('id', $id);
                 $this->db->update('gallery',$data);
                 return true;

@@ -6,6 +6,7 @@
         <h3 class="panel-title">Edit Image in Gallery</h3>
         </div>
         <div class="panel-body">
+        <div class="panel-body">
             <?php $attributes = ['id' => 'myform'];?>
             <?php echo form_open_multipart('admins/edit_gallery/'.$row['id'], $attributes); ?>
                 <?php if($this->session->flashdata('error')): ?>
@@ -30,6 +31,7 @@
                 <button type="submit" class="btn btn-primary confirm-edit">Submit</button>
                 </div>
             <?php echo form_close(); ?>
+        </div>
         </div>
     </div>
 </div>

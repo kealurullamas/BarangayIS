@@ -16,7 +16,7 @@
         </div>
         <div class="panel-body">
         <?php echo form_open_multipart('admins/createnews'); ?>
-                <div class="modal-body">
+             
                     <div class="panel-body">
                                 <?php if($this->session->flashdata('error')): ?>
                                 <span class="text-danger">
@@ -54,7 +54,7 @@
                 
        
                 <?php echo form_close(); ?>
-            </div>
+           
         </div>
     </div>
 
