@@ -99,6 +99,8 @@
                     echo json_encode(array("status" => TRUE));
                     $data = ['deletesuccess' => TRUE];
                     $this->session->set_flashdata($data);
+                    $result = $this->news_model->get_rownews($rowid);
+                    unlink(FCPATH . 'assets/img/'. $result['image']);
                     $this->news_model->delete_news($rowid);
                     
             }
@@ -383,6 +385,8 @@
                 echo json_encode(array("status" => TRUE));
                 $data = ['deletesuccess' => TRUE];
                 $this->session->set_flashdata($data);
+                $result = $this->gallery_model->getImageGallery($id);
+                unlink(FCPATH . 'assets/img/'.$result['image']);
                 $this->gallery_model->delete_gallery($id);
             }
 
@@ -434,6 +438,170 @@
                     $this->session->set_flashdata($data);
                     redirect('admin_pages/editproject/'.$id);
                 }             
+            }
+
+            public function create_council(){
+               
+                $this->form_validation->set_rules('CName','Council Name','trim|required');
+                $this->form_validation->set_rules('CTitle','Council Title','required');
+                $this->form_validation->set_rules('CCommit', 'Council Committee', 'trim|required');
+                if($this->form_validation->run()==false){
+                    $data = ['error' => '* field is required'];
+                    $this->session->set_flashdata($data);
+                    redirect('admin_pages/addcouncil');
+                }
+                else{
+                    $parentId;
+    
+                    if($this->input->post('CTitle')!='Kapitan'){
+                        $parentId=1;
+                    }else{
+                        $parentId=null;
+                    }
+    
+                    $config=[
+                        'upload_path'=>'assets/img/barangay_council',
+                        'allowed_types'=>'jpg|jpeg|png|bmp',
+                        'max_size'=>0,
+                        'filename'=>url_title($this->input->post('CImg')),
+                        'encrypt_name'=>true
+                    ];
+                    $this->load->library('upload',$config);
+    
+                    if($this->upload->do_upload('CImg')){
+                        $data=[
+                            "parentId"=>$parentId,
+                            "name"=>$this->input->post('CName'),
+                            "title"=>$this->input->post('CTitle'),
+                            "committee"=>$this->input->post('CCommit'),
+                            "image"=>$this->upload->file_name,
+                        ];
+    
+                        $this->council_model->add_council($data);
+                        $data = ['success' => TRUE];
+                        $this->session->set_flashdata($data);
+                        redirect('admin_pages/addcouncil');
+                    
+                    }
+                    else{
+                        $data = ['errorfiletype' => 'Invalid filetype'];
+                        $this->session->set_flashdata($data);  
+                        redirect('admin_pages/addcouncil', $data, 'refresh');
+                    }
+                    
+                    
+                }
+            }
+
+            public function deletecouncil($id){
+                echo json_encode(array("status" => TRUE));
+                $data = ['deletesuccess' => TRUE];
+                $result = $this->council_model->get_councilmember($id);
+                unlink(FCPATH . 'assets/img/barangay_council/'.$result['image']);
+                $this->session->set_flashdata($data);
+                $this->council_model->delete_council($id);
+               
+                
+                }
+               
+
+            public function editcouncil($id){
+                $this->form_validation->set_rules('CName','Council Name','trim|required');
+                $this->form_validation->set_rules('CTitle','Council Title','required');
+                $this->form_validation->set_rules('CCommit', 'Council Committee', 'trim|required');
+                if($this->form_validation->run()==false){
+                    $data = ['error' => '* field is required'];
+                    $this->session->set_flashdata($data);
+                    redirect('admin_pages/editcouncil/'.$id);
+                }
+                else{
+                    $parentId;
+    
+                    if($this->input->post('CTitle')!='Kapitan'){
+                        $parentId=1;
+                    }else{
+                        $parentId=null;
+                    }
+    
+                    $config=[
+                        'upload_path'=>'assets/img/barangay_council',
+                        'allowed_types'=>'jpg|jpeg|png|bmp',
+                        'max_size'=>0,
+                        'filename'=>url_title($this->input->post('CImg')),
+                        'encrypt_name'=>true
+                    ];
+                    $this->load->library('upload',$config);
+    
+                    if($this->upload->do_upload('CImg')){
+                        $data=[
+                            "parentId"=>$parentId,
+                            "name"=>$this->input->post('CName'),
+                            "title"=>$this->input->post('CTitle'),
+                            "committee"=>$this->input->post('CCommit'),
+                            "image"=>$this->upload->file_name,
+                        ];
+                        $result = $this->council_model->get_councilmember($id);
+                        unlink(FCPATH . 'assets/img/barangay_council/'.$result['image']);
+
+                        $this->council_model->update_council($id, $data);
+                        $data = ['success' => TRUE];
+                        $this->session->set_flashdata($data);
+                        redirect('admin_pages/councils');
+                    
+                    }
+                    else{
+                        $data = ['errorfiletype' => 'Invalid filetype'];
+                        $this->session->set_flashdata($data);  
+                        redirect('admin_pages/editcouncil/'.$id, 'refresh');
+                    }
+                    
+                    
+                }
+            }
+
+            public function createordinance(){
+                $this->form_validation->set_rules('ordinancetitle','Title', 'trim|required');
+                $this->form_validation->set_rules('ordinancedescription', 'Description', 'trim|required');
+                if($this->form_validation->run()){
+                    $title = $this->input->post('ordinancetitle');
+                    $desc = $this->input->post('ordinancedescription');
+                    $this->ordinance_model->create_ordinance($title, $desc);
+                    $data =['success' => TRUE];
+                    $this->session->set_flashdata($data);
+                    redirect('admin_pages/addordinance');
+                }
+                else{
+                    $data = ['error' => '* field is required'];
+                    $this->session->set_flashdata($data);
+                    redirect('admin_pages/addordinance', 'refresh');
+                    
+                }
+            }
+
+            public function updateordinance($id){
+                $this->form_validation->set_rules('ordinancetitle','Title', 'trim|required');
+                $this->form_validation->set_rules('ordinancedescription', 'Description', 'trim|required');
+                if($this->form_validation->run()){
+                    $title = $this->input->post('ordinancetitle');
+                    $desc = $this->input->post('ordinancedescription');
+                    $this->ordinance_model->update_ordinance($id, $title, $desc);
+                    $data =['success' => TRUE];
+                    $this->session->set_flashdata($data);
+                    redirect('admin_pages/ordinances');
+                }
+                else{
+                    $data = ['error' => '* field is required'];
+                    $this->session->set_flashdata($data);
+                    redirect('admin_pages/ordinances', 'refresh');    
+                }
+            }
+
+            public function deleteordinance($id){
+                echo json_encode(["status" => TRUE]);
+                $data = ['deletesuccess' => TRUE];
+              
+                $this->session->set_flashdata($data);
+                $this->ordinance_model->delete_ordinance($id);
             }
 
 

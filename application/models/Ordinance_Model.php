@@ -13,14 +13,39 @@
             $query=$this->db->get('ordinance');
             return $query->result_array();
         }
-        public function edit_ordinance(){
+
+        public function get_specificordinance($id){
+            $this->db->where('id', $id);
+            $query=$this->db->get('ordinance');
+            return $query->row_array();
+        }
+        public function update_ordinance($id, $title, $desc){
+            $slug = url_title($title);
+
+            $data = [
+                'title' => $title,
+                'description' => $desc,
+                'slug' => $slug
+
+            ];
+            $this->db->where('id', $id);
+            $this->db->update('ordinance', $data);
+        }
+        public function create_ordinance($title, $desc){
+            $slug = url_title($title);
+
+            $data = [
+                'title' => $title,
+                'description' => $desc,
+                'slug' => $slug
+
+            ];
+            $this->db->insert('ordinance', $data);
 
         }
-        public function create_ordinance(){
-
-        }
-        public function delete_ordinance(){
-
+        public function delete_ordinance($id){
+            $this->db->where('id', $id);
+            $this->db->delete('ordinance');
         }
     }
 ?>

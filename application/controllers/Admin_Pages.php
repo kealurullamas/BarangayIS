@@ -242,7 +242,71 @@
             $this->load->view('admin_pages/admin_editproject', $data);
             $this->load->view('templates/admin_footer');
         }
+
+        public function addcouncil(){
+            if(empty($this->session->userdata('username'))){
+                redirect('admin', 'refresh');
+            }
+
+            $this->load->view('templates/admin_header');
+            $this->load->view('admin_pages/admin_addcouncil');
+            $this->load->view('templates/admin_footer');
+        }
+
+        public function councils(){
+            if(empty($this->session->userdata('username'))){
+                redirect('admin', 'refresh');
+            }
+            $data['councils'] = $this->council_model->get_council();
+
+            $this->load->view('templates/admin_header');
+            $this->load->view('admin_pages/admin_council', $data);
+            $this->load->view('templates/admin_footer');
+        }
+
+        public function editcouncil($id){
+            if(empty($this->session->userdata('username'))){
+                redirect('admin', 'refresh');
+            }
+            $data['row'] = $this->council_model->get_councilmember($id);
+
+            $this->load->view('templates/admin_header');
+            $this->load->view('admin_pages/admin_editcouncil', $data);
+            $this->load->view('templates/admin_footer');
+        }
+
+        public function addordinance(){
+            if(empty($this->session->userdata('username'))){
+                redirect('admin', 'refresh');
+            }
+
+            $this->load->view('templates/admin_header');
+            $this->load->view('admin_pages/admin_addordinance');
+            $this->load->view('templates/admin_footer');
+        }
+
+        public function ordinances(){
+            if(empty($this->session->userdata('username'))){
+                redirect('admin', 'refresh');
+            }
+            $data['ordinances'] = $this->ordinance_model->get_all_ordinance();
+
+            $this->load->view('templates/admin_header');
+            $this->load->view('admin_pages/admin_ordinances', $data);
+            $this->load->view('templates/admin_footer');
+        }
         
+        public function editordinance($id){
+            if(empty($this->session->userdata('username'))){
+                redirect('admin', 'refresh');
+            }
+            $data['row'] = $this->ordinance_model->get_specificordinance($id);
+
+            $this->load->view('templates/admin_header');
+            $this->load->view('admin_pages/admin_editordinance', $data);
+            $this->load->view('templates/admin_footer');
+        }
+
     }
 
 

@@ -7,8 +7,7 @@
             <div class="panel-body">
             <?php $attributes = ['id' => 'myform'];?>
             <?php echo form_open('admins/editproject/'.$row['id'], $attributes); ?>
-    
-                <div class="modal-body">
+
                     <div class="panel-body">
                         <?php if($this->session->flashdata('error')): ?>
                         <span class="text-danger">
@@ -64,7 +63,7 @@
             </div>
 
                 <?php echo form_close(); ?>
-            </div>
+    
         </div>
     </div>
 </div>

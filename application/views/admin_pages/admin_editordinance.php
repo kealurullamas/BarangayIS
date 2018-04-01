@@ -2,12 +2,12 @@
     <!-- Website Overview -->
     <div class="panel panel-default">
         <div class="panel-heading">
-        <h3 class="panel-title">Edit Announcement</h3>
+        <h3 class="panel-title">Edit Ordinance</h3>
         </div>
         <div class="panel-body">
         <div class="panel-body">
             <?php $attributes = ['id' => 'myform'];?>
-            <?php echo form_open('admins/updateannouncement/'.$row['id'], $attributes); ?>
+            <?php echo form_open('admins/updateordinance/'.$row['id'], $attributes); ?>
                 <?php if($this->session->flashdata('error')): ?>
                 <span class="text-danger"><?php echo $this->session->flashdata('error') ?></span>
                 <?php endif;?>
@@ -15,15 +15,15 @@
                 <?php if($this->session->flashdata('error')): ?>
                 <span class="text-danger">*</span>
                 <?php endif; ?>
-                <label>Announcement Title</label>
-                <input type="text" name="announcementtitle" class="form-control" value="<?php echo $row['title'] ?>">
+                <label>Ordinance Title</label>
+                <input type="text" name="ordinancetitle" class="form-control" value="<?php echo $row['title'] ?>">
                 </div>
                 <div class="form-group">
                 <?php if($this->session->flashdata('error')): ?>
                 <span class="text-danger">*</span>
                 <?php endif; ?>
-                <label>Announcement Body</label>
-                <textarea name="announcementbody" class="form-control ckeditor"><?php echo $row['body']?></textarea>
+                <label>Ordinance Description</label>
+                <textarea name="ordinancedescription" class="form-control"><?php echo $row['description']?></textarea>
                 </div>
                 <div class="float-right">
                 <button type="submit" class="btn btn-primary confirm-edit">Submit</button>

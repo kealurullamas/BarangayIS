@@ -14,35 +14,37 @@
                 </button>
         </div>
         <?php endif;?>
-        
-        <div class="card mb-3">
+         <!--DataTables announcement-->
+         <div class="card mb-3">
         <div class="card-header">
-            <i class="fa fa-table"></i> Gallery</div>
+            <i class="fa fa-table"></i> Announcements</div>
         <div class="card-body">
             <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                 <tr>
                     <th>Title</th>
-                    <th>Image</th>
+                    <th>Body</th>
                     <th>Action</th>
                 </tr>
                 </thead>
                 <tfoot>
                 <tr>
                     <th>Title</th>
-                    <th>Image</th>
+                    <th>Body</th>
                     <th>Action</th>
                 </tr>
                 </tfoot>
                 <tbody>
-                <?php foreach($gallery as $picture): ?>
+                
+                <?php foreach($ordinances as $ordinance): ?>
                     <tr>
-                    <td style="width: 30%"><?php echo $picture['title'] ?></td>
-                    <td style="width: 45%"><img src="<?php echo base_url().'assets/img/'.$picture['image']?>" alt="<?php $picture['image'] ?>" class="img-responsive" height="100" width="200"></td>
-                    <td style="width: 25%" align="center">
-                        <a href="<?php echo base_url('Admin_Pages/editgallery/'.$picture['id']); ?>" class="mt-1 ml-1 mb-1 btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-fw fa-edit"></i> Edit</a>
-                        <button type="button" class="mt-1 ml-1 mb-1 btn btn-danger btn-sm confirm-delete" data-url="<?php echo site_url('admins/delete_gallery/')?>" data-id="<?php echo $picture['id']; ?>"><i class="fa fa-fw fa-trash-o"></i> Delete</button>
+                    <td style="width: 20%"><?php echo $ordinance['title'] ?></td>
+                    <td style="width: 50%"><?php echo $ordinance['description']; ?></td>
+                    <td style="width: 30%" align="center">
+                        <a href="<?php echo base_url('Admin_Pages/editordinance/'.$ordinance['id']);?>" class="mt-1 ml-1 mb-1 btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                        <!-- <button type="button" class="btn btn-info btn-sm" data-toggle='modal' data-target="#editModal"><i class="fa fa-fw fa-edit"></i> Edit</button> -->
+                        <button type="button" class="mt-1 ml-1 mb-1 btn btn-danger btn-sm confirm-delete" data-url="<?php echo site_url('admins/deleteordinance/')?>" data-id="<?php echo $ordinance['id']; ?>"><i class="fa fa-fw fa-trash-o"></i> Delete</button>
                      </td>
                     </tr>
                 <?php endforeach; ?>
@@ -50,10 +52,7 @@
                 </tbody>
             </table>
             </div>
-        </div>
-        <div class="card-footer small text-muted">Updated <?php echo $picture['uploaded_at'] ?></div>
-        </div>
-
+       
         <!-- Delete Modal-->
         <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -73,4 +72,5 @@
                     </div>
                     </div>
         </div>
-    
+
+        
