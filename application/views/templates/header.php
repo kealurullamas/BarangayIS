@@ -56,7 +56,7 @@ background-size:contain;
           </li>
             <li class="menu-has-children"><a class="cardlink"href="">Landmarks</a>
             <ul>
-              <li><a href="#">Map</a></li>
+              <li><a href="<?php echo base_url('Pages/view/Map')?>">Map</a></li>
             </ul>
           </li>
           <li><a class="cardlink" href="">Photo Gallery</a></li>

@@ -234,11 +234,10 @@
                 <div class="container">
                     <div class="row text-center text-lg-left">
                         <?php foreach($Galleries as $gallery):?>
-                        <div class="card text-white bg-primary mb-3" style="max-width:15rem;margin:6px;">
+                        <div class="card text-white bg-primary mb-3" style="max-width:15rem;margin:7px;">
                         <img class="card-img-top" src="<?php echo base_url('assets/img/'.$gallery['image']);?>" alt="Card image cap">
                         <div class="card-body">
-                        <h6 class="card-title">Card title</h6>
-                        <small class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</small>
+                        <h6 class="card-title"><?php echo $gallery['title']?></h6>
                         </div>
                         <div class="card-footer">
                         <small>Uploaded at: <?php echo $gallery['uploaded_at'];?></small>
@@ -251,7 +250,7 @@
             </div>
             <div class="card-footer">
                 <div class="container text-center">
-                    <small><a href="#" style="text-decoration:underline;" class="cardlink">View All</a></small>
+                    <small><a href="<?php echo base_url('galleries/getAll')?>" style="text-decoration:underline;" class="cardlink">View All</a></small>
                 </div>
             </div>
             </div>
@@ -259,6 +258,6 @@
         </div>
         </div>
         <!--end of gallery-->
-  </div>
-</div>
-<br>
+        </div>
+        </div>
+ <br>
