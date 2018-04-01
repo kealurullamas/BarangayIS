@@ -59,7 +59,7 @@ background-size:contain;
               <li><a href="<?php echo base_url('Pages/view/Map')?>">Map</a></li>
             </ul>
           </li>
-          <li><a class="cardlink" href="">Photo Gallery</a></li>
+          <li><a class="cardlink" href="<?php echo base_url('galleries/getAll')?>">Photo Gallery</a></li>
           <li class="menu-has-children"><a class="cardlink" href="">Others</a>
             <ul>
               <li><a href="<?php echo base_url()?>news/view_all">News</a></li>
