@@ -28,7 +28,7 @@
             ];
 
             $this->load->view('templates/header');
-            $this->load->view('Galleries/index');
+            $this->load->view('Galleries/index',$data);
             $this->load->view('templates/footer');
         }
         

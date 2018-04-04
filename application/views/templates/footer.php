@@ -1,24 +1,57 @@
 <div class="col-sm-1"></div>
 
-<footer id="footer">
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong>Reveal</strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!--
-          All the links in the footer should remain intact.
-          You can delete the links only if you purchased the pro version.
-          Licensing information: https://bootstrapmade.com/license/
-          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Reveal
-        -->
-        <a href="https://bootstrapmade.com/">Free Bootstrap Templates</a> by BootstrapMade
-      </div>
-    </div>
-  </footer><!-- #footer -->
+<div class="row">
+<div class="col-sm-1"></div>
+  <div class="col-sm-10">
+  <div class="container" style="background-color:#007bff">
+            <div class="row">
+            <div class="col-sm-3"></div>
+                <div class=" col-sm-2">
+                  <br>
+                    <h6 style="color:white">Barangay Malaban</h6>
+                    <hr>
+                    <ul style="list-style-type: none;">
+                        <li><small><a href="<?php echo base_url('Pages/view/mission_and_vision')?>" class="cardlink">Mission and Vision</a></small></li>
+                        <li><small><a href="<?php echo base_url('Pages/view/barangay_council')?>" class="cardlink">Barangay Council</a></small></li>
+                        <li><small><a href="<?php echo base_url('Pages/view/barangay_profile')?>" class="cardlink">Barangay Profile</a></small></li>
+                        <li><small><a href="<?php echo base_url('ordinances/viewAll')?>" class="cardlink"> Ordinance</a></small></li>
+                    </ul>
+                </div>
+                <div class=" col-sm-2 ">
+                <br>
+                <h6 style="color:white">Featured Pages</h6>
+                  <hr>
+                    <ul style="list-style-type: none;">
+                        <li><small><a href="<?php echo base_url('news/view_all')?>" class="cardlink">News Page</a></small></li>
+                        <li><small><a href="<?php echo base_url('events/index')?>" class="cardlink">Events Page</a></small></li>
+                        <li><small><a href="<?php echo base_url('projects/index')?>" class="cardlink">Projects Page</a></small></li>
+                        <li><small><a href="<?php echo base_url('galleries/getAll')?>" class="cardlink">Gallery Page</a></small></li>
+                        <li><small><a href="<?php echo base_url('Pages/view/Map')?>" class="cardlink">Map Page</a></small></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2">
+                <br>
+                <h6 style="color:white">Contac Info.</h6>
+                  <hr>
+                    <ul style="list-style-type: none;">
+                        <li><small style="color:white">Telephone:(000)000-0000</small></li>
+                        <li><small style="color:white">Mobile: <br> 0000-000-0000 </small></li>
+                        <li><small style="color:white">Email: <br> sample@yahoo.com</small></li>
 
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-
+                    </ul>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <!--/.row--> 
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6"><small style="color:white" > Copyright © 2018. All right reserved | Web Portal: Barangay Malaban Binan City, Laguna</small> </div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+  </div>
+  <div class="col-sm-1"></div>
+</div>
 <!-- JavaScript Libraries -->
 <script>
       var map;

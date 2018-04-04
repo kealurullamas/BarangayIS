@@ -42,23 +42,7 @@
 	</script>
 <?php
 require_once('vendor/autoload.php');
-//$phpWord = new \PhpOffice\PhpWord\PhpWord();
 
-// echo base_url('assets/clearance.docx');
-// $file = base_url('assets/clearance.docx');
-
-// $phpword = new \PhpOffice\PhpWord\TemplateProcessor($file);
-
-// $phpword->setValue('{$full name}','Rullamas Kealu S');
-// $phpword->setValue('{$origaddress}','Bgy.Burol');
-// $phpword->setValue('{birthdate}','April 6, 1997');
-// $phpword->setValue('{address}','Bgy.Burol');
-// $phpword->setValue('{reason}','la lng');       
-// $phpword->setValue('{thedatetoday}','March 26, 2017');        
-
-// $phpword->saveAs('edited.docx');
-// header("Content-disposition: attachment;filename=CERTIFICADO.docx; charset=iso-8859-1");
-// echo file_get_contents("edited.docx");
 
 
 
