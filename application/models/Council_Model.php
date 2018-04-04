@@ -23,5 +23,9 @@
             $query = $this->db->get('council');
             return $query->row_array();
         }
+
+        public function count_councils(){
+            return $numrows = $this->db->count_all_results('council');
+        }
     }
 ?>

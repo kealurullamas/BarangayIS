@@ -47,5 +47,9 @@
             $this->db->where('id', $id);
             $this->db->delete('ordinance');
         }
+
+        public function count_ordinances(){
+            return $query = $this->db->count_all_results('ordinance');
+        }
     }
 ?>

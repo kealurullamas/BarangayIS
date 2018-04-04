@@ -25,7 +25,9 @@
                 'eventscount' => $this->event_model->count_events(),
                 'imagescount' => $this->gallery_model->count_images(),
                 'newscount' => $this->news_model->count(),
-                'projectscount' => $this->projects_model->count_projects()
+                'projectscount' => $this->projects_model->count_projects(),
+                'councilscount' => $this->council_model->count_councils(),
+                'ordinancescount' => $this->ordinance_model->count_ordinances()
             ];
             $this->load->view('templates/admin_header');
             $this->load->view('admin_pages/admin_home', $data);
