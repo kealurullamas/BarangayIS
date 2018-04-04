@@ -13,7 +13,7 @@
                     <?php foreach($News as $news):?>
                     <?php if($news['id']==$News[0]['id']):?>
                         <div class="carousel-item active">
-                        <img style="width:100%;  height:300" src="<?php echo base_url('assets/img/'.$news['image'])?>">
+                        <img class="newsimg" src="<?php echo base_url('assets/img/'.$news['image'])?>">
                         <div class="carousel-caption">
                             <h6><a href="<?php echo site_url('news/'.$news['slug'])?>"><?php echo $news['title']?></a></h6>
                             <small><?php echo word_limiter($news['body'],10);?><a class="label label-primary" href="<?php echo site_url('/news/'.$news['slug'])?>" >Read More</a></small>
@@ -21,7 +21,7 @@
                         </div><!-- End Item -->
                     <?php else:?>
                     <div class="carousel-item">
-                        <img style="width:100%;  height:300" src="<?php echo base_url('assets/img/'.$news['image'])?>">
+                        <img class="newsimg" src="<?php echo base_url('assets/img/'.$news['image'])?>">
                         <div class="carousel-caption">
                         <h6><a href="<?php echo site_url('/news/'.$news['slug'])?>"><?php echo $news['title']?></a></h6>
                         <small><?php echo word_limiter($news['body'],25);?><a class="label label-primary" href="<?php echo site_url('/news/'.$news['slug'])?>" >Read More</a></small>

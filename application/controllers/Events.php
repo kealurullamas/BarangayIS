@@ -20,7 +20,7 @@
             $enddt->setTimestamp($end); // Set the date based on timestamp
             $end_format = $enddt->format('Y-m-d H:i:s');
 
-            $events=$this->event_model->get_events("2018-03-30 00:00:00","2018-03-31 00:00:00");
+            $events=$this->event_model->get_events("2017-03-30 00:00:00","2019-03-31 00:00:00");
             
 
             foreach($events as $event) {

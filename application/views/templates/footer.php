@@ -131,9 +131,15 @@
     $(document).ready(function() {
         $('#calendar').fullCalendar({
           height: 300,
-          eventRender: function(event, element) {
-              $(element).tooltip({title: event.title});             
-          },
+          eventRender: function(eventObj, $el) {
+                $el.popover({
+                title: eventObj.title,
+                content: eventObj.description,
+                trigger: 'hover',
+                placement: 'top',
+                container: 'body'
+                });
+            },
           eventSources: [
             {
               events: function(start, end, timezone, callback) {
@@ -163,9 +169,15 @@
   <script type="text/javascript">
     $(document).ready(function() {
         $('#calendar-big').fullCalendar({
-          eventRender: function(event, element) {
-              $(element).tooltip({title: event.title+"/n"+"hehe"});             
-          },
+          eventRender: function(eventObj, $el) {
+                $el.popover({
+                title: eventObj.title,
+                content: eventObj.description,
+                trigger: 'hover',
+                placement: 'top',
+                container: 'body'
+                });
+            },
           eventSources: [
             {
               events: function(start, end, timezone, callback) {
